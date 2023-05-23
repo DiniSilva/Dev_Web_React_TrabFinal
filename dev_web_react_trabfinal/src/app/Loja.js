@@ -4,10 +4,7 @@ import Cliente from './Cliente';
 import Reparacao from './Reparacao';
 
 class Loja extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { troca: 0 };
-    }
+    state = { troca: 0 }
 
     trocaLoja(){ this.setState({troca: 0}); }
     trocaCliente(){ this.setState({troca: 1}); }
