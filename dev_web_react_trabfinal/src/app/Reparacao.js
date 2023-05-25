@@ -6,10 +6,23 @@ class Reparacao extends Component {
     }
 
     render() {
+        let listaFinal = [];
+
+        this.props.lista.forEach(prev => 
+            listaFinal.push(
+            <li className="list-group-item">
+                <div>Nome: {prev.nome}</div>
+                <div>NIF: {prev.nif}</div>
+                <div>E-mail: {prev.email}</div>
+                <div>Telemovél: {prev.telemovel}</div>
+            </li>)
+        );
+
         return (
             <> 
                 <section class="reparacao">
                     <div class="row">
+                        {/* 
                         <div class="col-12">
                             <table class="table table-image">
                             <thead>
@@ -45,6 +58,15 @@ class Reparacao extends Component {
                                 </tr>
                             </tbody>
                             </table>   
+                        </div> */}
+                        <h4>Clientes</h4>
+                        <div>
+                            <ul class="list-group">
+                                {listaFinal}
+                            </ul>
+                        </div>
+
+                        <div class="col-6">
                         </div>
                     </div>
                     <a href='#/' className='hero-btn' onClick={() => this.props.trocaLoja()}>Loja</a>
