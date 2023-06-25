@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./Cliente.css"
 
 class Cliente extends Component {
     constructor(props) {
@@ -26,8 +27,8 @@ class Cliente extends Component {
                             <p>Anim ullamco occaecat consectetur adipisicing excepteur pariatur labore mollit Lorem. Deserunt elit amet velit incididunt non dolore et magna labore ad. Minim nulla consequat eu minim. Sit sunt excepteur dolor laboris laborum. Aliquip nisi velit tempor veniam et eu veniam reprehenderit sit fugiat adipisicing occaecat veniam.</p>
                         </div>
                     </div>
-                    <a href='#/' className='hero-btn' onClick={() => this.props.trocaLoja()}>Loja</a>
-                    <a href='#/' className='hero-btn' onClick={() => this.props.trocaReparacao()}>Reparações</a>
+                    <a href='#/' className='hero-btn' >Loja</a>
+                    <a href='#/' className='hero-btn' >Reparações</a>
                 </section>
             </>
         );
