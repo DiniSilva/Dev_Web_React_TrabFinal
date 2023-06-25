@@ -22,7 +22,7 @@ class Reparacao extends Component {
             <> 
                 <section class="reparacao">
                     <div class="row">
-                        {/* 
+                        {
                         <div class="col-12">
                             <table class="table table-image">
                             <thead>
@@ -58,7 +58,7 @@ class Reparacao extends Component {
                                 </tr>
                             </tbody>
                             </table>   
-                        </div> */}
+                        </div> }
                         <h4>Clientes</h4>
                         <div>
                             <ul class="list-group">
@@ -69,8 +69,8 @@ class Reparacao extends Component {
                         <div class="col-6">
                         </div>
                     </div>
-                    <a href='#/' className='hero-btn' onClick={() => this.props.trocaLoja()}>Loja</a>
-                    <a href='#/' className='hero-btn' onClick={() => this.props.trocaCliente()}>Area Cliente</a>
+                    <a href='#/' className='hero-btn' >Loja</a>
+                    <a href='#/' className='hero-btn' >Area Cliente</a>
                 </section>
             </>
         );

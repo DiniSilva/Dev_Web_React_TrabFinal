@@ -19,8 +19,8 @@ function App() {
               </div>
               <div className='blur'></div> 
           </nav>
-          <Loja/>
         </div>
+            <Loja/>
       </header>
     </div>
   );
