@@ -4,15 +4,27 @@ import "./Loja.css"
 import React, { Component } from 'react';
 import Cliente from './Cliente';
 import Reparacao from './Reparacao';
+import Funcionario from './Funcionario';
+import Dispositivo from './Dispositivo';
 
 class Loja extends Component {
-    state = { listaClientes: [], dadoClientes: null }
-
-    async componentDidMount(){
-        this.buscarDadosIniciais();
+    state = { 
+        listaClientes: [], dadosCliente: null,
+        listaFuncionarios:[], dadosFuncionario: null,
+        listaDispositivos:[], dadosDispositivo: null,
+        listaReparacaos:[], dadosReparacao: null 
     }
 
-    async buscarDadosIniciais(){
+    async componentDidMount(){
+        this.buscarDadosClientes();
+        this.buscarDadosFuncionarios();
+        this.buscarDadosDispositivos();
+        this.buscarDadosReparacao();
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+    async buscarDadosClientes(){
         var requestOptions = {
             method: "GET",
             redirect: "follow"
@@ -23,13 +35,84 @@ class Loja extends Component {
         .then(result => this.setState({ listaClientes: result }))
         .catch(error => console.log("error", error));
     }
-        
-    buscarDados(id){
+    
+    
+    buscarCliente(id){
         fetch("https://localhost:7294/api/ClientesAPI" + id)
         .then(response => response.json())
-        .then(result => this.setState({ dadoClientes: result }))
+        .then(result => this.setState({ dadosCliente: result }))
         .catch(error => console.log("error", error));
     }
+
+    /*----------------------------------------------------------------------------*/
+
+    async buscarDadosFuncionarios(){
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow"
+        };
+        
+        fetch("https://localhost:7294/api/FuncionariosAPI", requestOptions)
+        .then(response => response.json())
+        .then(result => this.setState({ listaFuncionarios: result }))
+        .catch(error => console.log("error", error));
+    }
+    
+    
+    buscarFuncionario(id){
+        fetch("https://localhost:7294/api/FuncionariosAPI" + id)
+        .then(response => response.json())
+        .then(result => this.setState({ dadosFuncionario: result }))
+        .catch(error => console.log("error", error));
+    }
+    
+    /*----------------------------------------------------------------------------*/
+
+    async buscarDadosDispositivos(){
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow"
+        };
+        
+        fetch("https://localhost:7294/api/DispositivosAPI", requestOptions)
+        .then(response => response.json())
+        .then(result => this.setState({ listaDispositivos: result }))
+        .catch(error => console.log("error", error));
+    }
+    
+    
+    buscarDispositivo(id){
+        fetch("https://localhost:7294/api/DispositivosAPI" + id)
+        .then(response => response.json())
+        .then(result => this.setState({ dadosDispositivo: result }))
+        .catch(error => console.log("error", error));
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+    async buscarDadosReparacao(){
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow"
+        };
+        
+        fetch("https://localhost:7294/api/ReparacaosAPI", requestOptions)
+        .then(response => response.json())
+        .then(result => this.setState({ listaReparacaos: result }))
+        .catch(error => console.log("error", error));
+    }
+    
+    
+    buscarReparacao(id){
+        fetch("https://localhost:7294/api/ReparacaosAPI" + id)
+        .then(response => response.json())
+        .then(result => this.setState({ dadosReparacao: result }))
+        .catch(error => console.log("error", error));
+    }
+
+    /*----------------------------------------------------------------------------*/
+
+
 
     openNav() {
         document.getElementById("mySidebar").style.width = "500px";
@@ -74,7 +157,13 @@ class Loja extends Component {
                 <Cliente
                 />
                 <Reparacao lista={this.state.listaClientes}
-                    buscarDados={(id) => { this.buscarDados(id) }}
+                    buscarCliente={(id) => { this.buscarCliente(id) }}
+                />
+                <Funcionario lista={this.state.listaFuncionarios}
+                    buscarFuncionario={(id) => { this.buscarFuncionario(id) }}
+                />
+                <Dispositivo lista={this.state.listaDispositivos}
+                    buscarDispositivo={(id) => { this.buscarDispositivo(id) }}
                 />
             </>
         );
