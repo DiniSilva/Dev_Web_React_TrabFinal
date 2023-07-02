@@ -12,7 +12,16 @@ class Loja extends Component {
         listaClientes: [], dadosCliente: null,
         listaFuncionarios:[], dadosFuncionario: null,
         listaDispositivos:[], dadosDispositivo: null,
-        listaReparacaos:[], dadosReparacao: null 
+        listaReparacaos:[], dadosReparacao: null,
+        novoCliente:{
+            "Nome": "",
+            "Nif": "",
+            "Morada": "",
+            "CodPostal": "",
+            "Email": "",
+            "Telemovel": "",
+        }, password: ""
+            
     }
 
     async componentDidMount(){
@@ -22,6 +31,37 @@ class Loja extends Component {
         this.buscarDadosReparacao();
     }
 
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
+        if (name === "Password"){
+            this.setState({ password: value});
+        }
+        this.setState(prevState => ({
+          novoCliente: {
+            ...prevState.novoCliente,
+            [name]: value
+          }
+        }));
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { novoCliente, password } = this.state;
+        console.log(novoCliente, password);
+        this.meterDadosCliente(novoCliente, password);
+        // Limpar a form
+        this.setState({
+          novoCliente: {
+            "Nome": "",
+            "Nif": "",
+            "Morada": "",
+            "CodPostal": "",
+            "Email": "",
+            "Telemovel": "",
+          }, password: ""
+        });
+    }
+    
     /*----------------------------------------------------------------------------*/
 
     async buscarDadosClientes(){
@@ -44,6 +84,26 @@ class Loja extends Component {
         .catch(error => console.log("error", error));
     }
 
+    meterDadosCliente(obj, password){
+        var resquestOptions = {
+            method: "POST",
+            redirect: "follow",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(obj)
+        };
+
+        fetch("https://localhost:7294/api/ClientesAPI/create?password=" + password, resquestOptions)
+            .then(res => res.json())
+            .then(result => {console.log(result);
+                //Refresh na lista dos clientes
+                this.buscarDadosClientes()
+            })
+            .catch(error => console.log("error", error));
+    }
+
     /*----------------------------------------------------------------------------*/
 
     async buscarDadosFuncionarios(){
@@ -64,6 +124,26 @@ class Loja extends Component {
         .then(response => response.json())
         .then(result => this.setState({ dadosFuncionario: result }))
         .catch(error => console.log("error", error));
+    }
+
+    meterDadosFuncionario(obj){
+        var resquestOptions = {
+            method: "POST",
+            redirect: "follow",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(obj)
+        };
+
+        fetch("https://localhost:7294/api/FuncionariosAPI/create", resquestOptions)
+            .then(res => res.json())
+            .then(result => {console.log(result);
+                //Refresh ma lista dos funcionarios
+                this.buscarDadosFuncionarios()
+            })
+            .catch(error => console.log("error", error));
     }
     
     /*----------------------------------------------------------------------------*/
@@ -123,6 +203,8 @@ class Loja extends Component {
     }
     
     render() {
+        //const {novoCliente}= this.state;
+        let novoCliente = this.state.novoCliente;
         return (
             <>
                 <div className='sec'>
@@ -141,12 +223,40 @@ class Loja extends Component {
                     </nav>
                 </div>
 
-                <div id="mySidebar" class="sidebar">
+                <div id="mySidebar" class="sidebar ">
                     <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Clients</a>
-                    <a href="#">Contact</a>
+                    <h2>Criar Cliente</h2>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                        Nome:
+                        <input type="text" name="Nome" value={novoCliente.Nome} onChange={this.handleInputChange} />
+                        </label>
+                        <label>
+                        Morada:
+                        <input type="text" name="Morada" value={novoCliente.Morada} onChange={this.handleInputChange} />
+                        </label>
+                        <label>
+                        CodPostal:
+                        <input type="text" name="CodPostal" value={novoCliente.CodPostal} onChange={this.handleInputChange} />
+                        </label>
+                        <label>
+                        Email:
+                        <input type="email" name="Email" value={novoCliente.Email} onChange={this.handleInputChange} />
+                        </label>
+                        <label>
+                        Password:
+                        <input type="password" name="Password" value={this.state.password} onChange={this.handleInputChange} />
+                        </label>
+                        <label>
+                        Telemovel:
+                        <input type="text" name="Telemovel" value={novoCliente.Telemovel} onChange={this.handleInputChange} />
+                        </label>
+                        <label>
+                        NIF:
+                        <input type="text" name="Nif" value={novoCliente.Nif} onChange={this.handleInputChange} />
+                        </label>
+                        <button type="submit">Create</button>
+                    </form>
                 </div>
 
                 <section className='loja'>
