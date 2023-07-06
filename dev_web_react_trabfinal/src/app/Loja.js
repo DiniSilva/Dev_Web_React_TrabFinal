@@ -6,6 +6,7 @@ import Cliente from './Cliente';
 import Reparacao from './Reparacao';
 import Funcionario from './Funcionario';
 import Dispositivo from './Dispositivo';
+import Login from './Login';
 
 class Loja extends Component {
     state = { 
@@ -13,18 +14,6 @@ class Loja extends Component {
         listaFuncionarios:[], dadosFuncionario: null,
         listaDispositivos:[], dadosDispositivo: null,
         listaReparacaos:[], dadosReparacao: null,
-        novoCliente:{
-            "Nome": "",
-            "Nif": "",
-            "Morada": "",
-            "CodPostal": "",
-            "Email": "",
-            "Telemovel": "",
-        }, password: "",
-        UserLogin: {
-            Email: "", 
-            Password: ""
-        }, isLogged: false  
     }
 
     async componentDidMount(){
@@ -34,105 +23,6 @@ class Loja extends Component {
         this.buscarDadosReparacao();
     }
 
-    /*----------------------------------------------------------------------------*/
-
-    handleInputChangeLogin = (event) => {
-        const { name, value } = event.target;
-        this.setState(prevState => ({
-            UserLogin: {
-                ...prevState.UserLogin,
-                [name]: value
-            }
-        }));
-    };
-
-    handleLogin = (event) => {
-        event.preventDefault();
-        const { UserLogin } = this.state;
-        console.log( UserLogin );
-        this.login(UserLogin);
-        this.setState({
-            UserLogin: {
-                Email: "",
-                Password: "",
-            }
-        });
-    };
-
-    login (obj){
-        var requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(obj)
-        };
-        
-        fetch("https://localhost:7294/api/ClientesAPI/login", requestOptions)
-        .then((response) => {
-            if (response.ok) {
-                this.state.isLogged = true;
-                console.log("LOGIN FEITO!", this.state.isLogged );
-            } else {
-                throw new Error("Login failed");
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    };
-
-    logout (){
-        var requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-        };
-
-        fetch("https://localhost:7294/api/ClientesAPI/logout", requestOptions)
-        .then((response) => {
-            if (response.ok) {
-                this.state.isLogged = false;
-                console.log("LOGOUT FEITO!", this.state.isLogged );
-            } else {
-                throw new Error("Logout failed");
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    };
-
-    /*----------------------------------------------------------------------------*/
-
-    handleInputChange = (event) => {
-        const { name, value } = event.target;
-        if (name === "Password"){
-            this.setState({ password: value});
-        }
-        this.setState(prevState => ({
-            novoCliente: {
-            ...prevState.novoCliente,
-            [name]: value
-            }
-        }));
-    };
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const { novoCliente, password } = this.state;
-        console.log(novoCliente, password);
-        this.meterDadosCliente(novoCliente, password);
-        // Limpar a form
-        this.setState({
-          novoCliente: {
-            "Nome": "",
-            "Nif": "",
-            "Morada": "",
-            "CodPostal": "",
-            "Email": "",
-            "Telemovel": "",
-          }, password: ""
-        });
-    };
-    
     /*----------------------------------------------------------------------------*/
 
     async buscarDadosClientes(){
@@ -153,26 +43,6 @@ class Loja extends Component {
         .then(response => response.json())
         .then(result => this.setState({ dadosCliente: result }))
         .catch(error => console.log("error", error));
-    }
-
-    meterDadosCliente(obj, password){
-        var resquestOptions = {
-            method: "POST",
-            redirect: "follow",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: JSON.stringify(obj)
-        };
-
-        fetch("https://localhost:7294/api/ClientesAPI/create?password=" + password, resquestOptions)
-            .then(res => res.json())
-            .then(result => {console.log(result);
-                //Refresh na lista dos clientes
-                this.buscarDadosClientes()
-            })
-            .catch(error => console.log("error", error));
     }
 
     /*----------------------------------------------------------------------------*/
@@ -263,8 +133,6 @@ class Loja extends Component {
 
     /*----------------------------------------------------------------------------*/
 
-
-
     openNav() {
         document.getElementById("mySidebar").style.width = "500px";
     }
@@ -275,8 +143,7 @@ class Loja extends Component {
     
     render() {
         //const {novoCliente}= this.state;
-        let novoCliente = this.state.novoCliente;
-        let UserLogin = this.state.UserLogin;
+        
         return (
             <>
                 <div className='sec'>
@@ -284,7 +151,7 @@ class Loja extends Component {
                         <a class="navbar-brand" href=''><img src='https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png' class="d-inline-block"></img>Amogus</a>
                         <div className='nav-links'>
                             <ul>
-                                <li class="nav-item"><a class="nav-link" onClick={() => this.openNav()}>&#9776; HOME</a></li>
+                                <li class="nav-item"><a class="nav-link"  data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>&#9776; HOME</a></li>
                                 <li class="nav-item"><a class="nav-link" href=''>About</a></li>
                                 <li class="nav-item"><a class="nav-link" href=''>Course</a></li>
                                 <li class="nav-item"><a class="nav-link" href=''>IDK</a></li>
@@ -294,61 +161,11 @@ class Loja extends Component {
                         <div className='blur'></div> 
                     </nav>
                 </div>
-
-                <div id="mySidebar" class="sidebar ">
-                    <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
-                    {this.state.isLogged ? (
-                        <>
-                        <h2>Criar Cliente</h2>
-                        <form onSubmit={this.handleSubmit}>
-                            <label>
-                            Nome:
-                            <input type="text" name="Nome" value={novoCliente.Nome} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            Morada:
-                            <input type="text" name="Morada" value={novoCliente.Morada} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            CodPostal:
-                            <input type="text" name="CodPostal" value={novoCliente.CodPostal} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            Email:
-                            <input type="email" name="Email" value={novoCliente.Email} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            Password:
-                            <input type="password" name="Password" value={this.state.password} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            Telemovel:
-                            <input type="text" name="Telemovel" value={novoCliente.Telemovel} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            NIF:
-                            <input type="text" name="Nif" value={novoCliente.Nif} onChange={this.handleInputChange} />
-                            </label>
-                            <button type="submit">Create</button>
-                        </form>
-                        </>
-                    ) : (
-                        <>
-                        <h2>Login</h2>
-                        <form onSubmit={this.handleLogin}>
-                            <label>
-                            Email:
-                            <input type="email" name="Email" placeholder="Email" value={UserLogin.Email} onChange={this.handleInputChangeLogin} />
-                            </label>
-                            <label>
-                            Login:
-                            <input type="password" name="Password" placeholder="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin}/>
-                            </label>
-                            <button type="submit">Login</button>
-                        </form>
-                    </>
-                    )}
-                </div>
+                <button className='btn btn-primary' type='button' data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'></button>
+                <Login close={() => {this.closeNav()}}
+                    buscar={() => {this.buscarDadosClientes()}}
+                />
+                
 
                 <section className='loja'>
                     <h1>Ullamco incididunt dolore pariatur adipisicing.</h1>
