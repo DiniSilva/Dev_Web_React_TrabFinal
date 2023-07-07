@@ -7,16 +7,22 @@ class Funcionario extends Component {
     }
 
     render() {
+        // obter os valores unicos da listaFuncionarios
+        let valoresUnicos = [...new Set(this.props.listaFuncionarios.map(item => item.especializacao))];
 
-        let listaFinal = [];
-
-        this.props.lista.forEach(item => 
-            listaFinal.push(
-            <li className="list-group-item">
-                <div>Nome: {item.nome}</div>
-                <div>Especialização: {item.especializacao}</div>
-            </li>)
-        );
+        // mete os valores obtidos antes noutra lista
+        let listaFinal = valoresUnicos.map(item => (
+            <li className="list-group-item" key={item}>
+                <div>Especialização: {item}</div>
+            </li>
+        ));
+        
+        // this.props.listaFuncionarios.forEach(item => 
+        //     listaFinal.push(
+        //     <li className="list-group-item">
+        //         <div>Especialização: {item.especializacao}</div>
+        //     </li>)
+        // );
 
         return (
             <> 
