@@ -10,10 +10,11 @@ import Login from './Login';
 
 class Loja extends Component {
     state = { 
-        listaClientes: [], dadosCliente: null,
+        listaClientes: [], dadosCliente: "",
         listaFuncionarios:[], dadosFuncionario: null,
         listaDispositivos:[], dadosDispositivo: null,
         listaReparacaos:[], dadosReparacao: null,
+        isLogged:false, LogId:null
     }
 
     async componentDidMount(){
@@ -39,9 +40,9 @@ class Loja extends Component {
     
     
     buscarCliente(id){
-        fetch("https://localhost:7294/api/ClientesAPI" + id)
+        fetch("https://localhost:7294/api/ClientesAPI/" + id)
         .then(response => response.json())
-        .then(result => this.setState({ dadosCliente: result }))
+        .then(result => this.setState({ dadosCliente: result },() => {console.log(this.state.dadosCliente)}))
         .catch(error => console.log("error", error));
     }
 
@@ -61,7 +62,7 @@ class Loja extends Component {
     
     
     buscarFuncionario(id){
-        fetch("https://localhost:7294/api/FuncionariosAPI" + id)
+        fetch("https://localhost:7294/api/FuncionariosAPI/" + id)
         .then(response => response.json())
         .then(result => this.setState({ dadosFuncionario: result }))
         .catch(error => console.log("error", error));
@@ -103,7 +104,7 @@ class Loja extends Component {
     
     
     buscarDispositivo(id){
-        fetch("https://localhost:7294/api/DispositivosAPI" + id)
+        fetch("https://localhost:7294/api/DispositivosAPI/" + id)
         .then(response => response.json())
         .then(result => this.setState({ dadosDispositivo: result }))
         .catch(error => console.log("error", error));
@@ -125,7 +126,7 @@ class Loja extends Component {
     
     
     buscarReparacao(id){
-        fetch("https://localhost:7294/api/ReparacaosAPI" + id)
+        fetch("https://localhost:7294/api/ReparacaosAPI/" + id)
         .then(response => response.json())
         .then(result => this.setState({ dadosReparacao: result }))
         .catch(error => console.log("error", error));
@@ -133,14 +134,13 @@ class Loja extends Component {
 
     /*----------------------------------------------------------------------------*/
 
-    openNav() {
-        document.getElementById("mySidebar").style.width = "500px";
-    }
-
-    closeNav() {
-        document.getElementById("mySidebar").style.width = "0px";
-    }
-    
+    handelLoginStatus = (logged, id) => {
+        this.setState({
+            isLogged: logged,
+            LogId: id
+        });
+    };
+        
     render() {
         //const {novoCliente}= this.state;
         
@@ -162,16 +162,16 @@ class Loja extends Component {
                     </nav>
                 </div>
                 <button className='btn btn-primary' type='button' data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'></button>
-                <Login close={() => {this.closeNav()}}
-                    buscar={() => {this.buscarDadosClientes()}}
+                <Login buscar={() => { this.buscarDadosClientes() }}
+                    LoginStatus={(logged, id) => {this.handelLoginStatus(logged, id)}}
+                    dados={this.state.dadosCliente}
+                    buscarCliente={(id) => {this.buscarCliente(id)}}
                 />
-                
-
                 <section className='loja'>
                     <h1>Ullamco incididunt dolore pariatur adipisicing.</h1>
                     <p>Velit sint pariatur tempor non et enim. Sint minim sunt sit ea qui duis deserunt. Eiusmod veniam aute labore eu incididunt dolor commodo elit incididunt reprehenderit cillum adipisicing incididunt. Eu labore eu consectetur duis irure elit quis pariatur ad elit. <br/>Deserunt voluptate officia qui excepteur qui Lorem occaecat exercitation sint eu id. Culpa aliqua eu deserunt cillum et anim occaecat officia cupidatat.</p>
-                    <a href='#' className='hero-btn' onClick={() => this.openNav()}>&#9776; Open Sidebar</a>
-                    <button onClick={() => this.logout()}>LOGOUT</button>
+                    <a href='#' className='hero-btn'  data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>&#9776; Open Sidebar</a>
+                    
                 </section>
                 <Cliente
                 />

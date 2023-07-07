@@ -19,7 +19,9 @@ class Login extends Component {
         UserLogin: {
             Email: "", 
             Password: ""
-        }, isLogged: false, LogId: null
+        }, isLogged: false, LogId: null,registo: false,
+        entrar: true, listaPerfil:[]
+        
     }
 
     handleInputChange = (event) => {
@@ -95,6 +97,7 @@ class Login extends Component {
             }
         });
     };
+
     login (obj){
         var requestOptions = {
             method: "POST",
@@ -107,8 +110,9 @@ class Login extends Component {
         .then((result) => {
             if (result) {
                 this.state.isLogged = true;
-                this.state.isLoggedID = result.clienteId;
-                console.log("LOGIN FEITO!", this.state.isLogged, this.state.isLoggedID );
+                this.state.LogId = result.clienteId;
+                this.props.LoginStatus(true,result.clienteId)
+                console.log("LOGIN FEITO!", this.state.isLogged, this.state.LogId );
             } else {
                 throw new Error("Login failed");
             }
@@ -116,6 +120,7 @@ class Login extends Component {
         .catch((error) => {
             console.log(error);
         });
+        setTimeout(() => {this.buscarInfoCliente(this.state.LogId);},"500");
     };
     
     logout (){
@@ -129,8 +134,9 @@ class Login extends Component {
         .then((result) => {
             if (result) {
                 this.state.isLogged = false;
-                this.state.isLoggedID = null;
-                console.log("LOGOUT FEITO!", this.state.isLogged, this.state.isLoggedID );
+                this.state.LogId = null;
+                this.props.LoginStatus(false,null)
+                console.log("LOGIN FEITO!", this.state.isLogged, this.state.LogId );
             } else {
                 throw new Error("Logout failed");
             }
@@ -140,10 +146,64 @@ class Login extends Component {
         });
     };
 
+    handleButtonClick = () => {
+        this.setState({
+          registo: !this.state.registo,
+          entrar: !this.state.entrar
+        });
+      };
+
+     buscarInfoCliente(id) {
+        this.props.buscarCliente(id);
+        setTimeout(() => {console.log(this.props.dados);
+        let listaPerfil = this.state.listaPerfil;
+        if (typeof this.props.dados === "object") {
+          Object.keys(this.props.dados).forEach((key) => {
+            if (key !== "id" && key !== "userId" && key !== "listaDipositivos") {
+            let displayName = "";
+            const value = this.props.dados[key];
+            switch (key) {
+                case "nome":
+                    displayName = "Nome";
+                    break;
+                case "nif":
+                    displayName = "NIF";
+                    break;
+                case "morada":
+                    displayName = "Morada";
+                    break;
+                case "codPostal":
+                    displayName = "Código Postal";
+                    break;
+                case "email":
+                    displayName = "Email";
+                    break;
+                case "telemovel":
+                    displayName = "Telemovel";
+                    break;
+                
+                default:
+                    displayName = key; // Use the key as the display name by default
+                    break;
+            }
+            listaPerfil.push(
+              <li className="list-group-item">
+                <div>{displayName}: {value}</div>
+              </li>
+            );
+          }});
+          this.setState({ listaPerfil }); 
+        }},"500");
+      }
+      
     render() {
 
         let novoCliente = this.state.novoCliente;
         let UserLogin = this.state.UserLogin;
+
+        let listaPerfil = this.state.listaPerfil;
+
+        const { registo, entrar,isLogged } = this.state;
 
         return (
             <div class="offcanvas offcanvas-end text-bg-dark" data-bs-scroll="false" tabIndex="-1" id="sidebar" aria-labelledby="sidebarLabel">
@@ -151,8 +211,11 @@ class Login extends Component {
                 <div class="offcanvas-header">
                     <a type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></a>
                 </div>    
+                {!isLogged ? (
                 <div class="offcanvas-body">
-                    <h2>Criar Cliente</h2>
+                   
+                    {registo && <div>
+                        <h2>Criar Cliente</h2>
                         <form onSubmit={this.handleSubmit}>
                             <label>
                             Nome:
@@ -183,7 +246,10 @@ class Login extends Component {
                             <input type="text" name="Nif" value={novoCliente.Nif} onChange={this.handleInputChange} />
                             </label>
                             <button type="submit">Create</button>
-                        </form>  
+                        </form> 
+                        <p> <a href="#" onClick={this.handleButtonClick} >Tenho conta</a></p>  
+                    </div>}
+                    {entrar && <div >
                         <h2>Login</h2>
                         <form onSubmit={this.handleLogin}>
                             <label>
@@ -195,9 +261,21 @@ class Login extends Component {
                             <input type="password" name="Password" placeholder="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin}/>
                             </label>
                             <button type="submit">Login</button>
-                        </form>
-                        <p>Não têm conta? <a href="#" >Registe-se</a></p>    
-                </div>                   
+                        </form>    
+                        <p>Não têm conta? <a href="#" onClick={this.handleButtonClick} >Registe-se</a></p>  
+                    </div>}
+                    
+                </div>
+                ) : (
+                    <div class="offcanvas-body">
+                        <div>
+                            <ul class="list-group">
+                                {listaPerfil}
+                            </ul>
+                        </div>
+                        <button onClick={() => this.logout()}>LOGOUT</button> 
+                    </div>
+                )}
             </div>
                 
         );
