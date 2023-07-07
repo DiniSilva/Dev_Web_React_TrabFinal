@@ -112,6 +112,7 @@ class Login extends Component {
                 this.state.isLogged = true;
                 this.state.LogId = result.clienteId;
                 this.props.LoginStatus(true,result.clienteId)
+                setTimeout(() => {this.buscarInfoCliente(this.state.LogId);},"500");
                 console.log("LOGIN FEITO!", this.state.isLogged, this.state.LogId );
             } else {
                 throw new Error("Login failed");
@@ -119,8 +120,7 @@ class Login extends Component {
         })
         .catch((error) => {
             console.log(error);
-        });
-        setTimeout(() => {this.buscarInfoCliente(this.state.LogId);},"500");
+        });     
     };
     
     logout (){
@@ -204,18 +204,22 @@ class Login extends Component {
         let listaPerfil = this.state.listaPerfil;
 
         const { registo, entrar,isLogged } = this.state;
-
+       
         return (
-            <div class="offcanvas offcanvas-end text-bg-dark" data-bs-scroll="false" tabIndex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+            
+            <div class="offcanvas offcanvas-end text-bg-dark spacer layer1" data-bs-scroll="false" tabIndex="-1" id="sidebar" aria-labelledby="sidebarLabel" style={{ width: "33%" }}>
                 {/*<a href="javascript:void(0)" class="closebtn" onClick={() => this.props.close()}>&times;</a>*/}
                 <div class="offcanvas-header">
-                    <a type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></a>
+                    <a type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></a>
+                    
                 </div>    
                 {!isLogged ? (
-                <div class="offcanvas-body">
+                <div className="offcanvas-body"  style={{ paddingTop: '200px' }}>
                    
                     {registo && <div>
                         <h2>Criar Cliente</h2>
+                        <div className="row">
+                        <div className="col">
                         <form onSubmit={this.handleSubmit}>
                             <label>
                             Nome:
@@ -247,22 +251,30 @@ class Login extends Component {
                             </label>
                             <button type="submit">Create</button>
                         </form> 
-                        <p> <a href="#" onClick={this.handleButtonClick} >Tenho conta</a></p>  
+                        <p> <a href="#" onClick={this.handleButtonClick} >Tenho conta</a></p></div></div>  
                     </div>}
                     {entrar && <div >
-                        <h2>Login</h2>
-                        <form onSubmit={this.handleLogin}>
-                            <label>
-                            Email:
-                            <input type="email" name="Email" placeholder="Email" value={UserLogin.Email} onChange={this.handleInputChangeLogin} />
-                            </label>
-                            <label>
-                            Login:
-                            <input type="password" name="Password" placeholder="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin}/>
-                            </label>
-                            <button type="submit">Login</button>
-                        </form>    
-                        <p>Não têm conta? <a href="#" onClick={this.handleButtonClick} >Registe-se</a></p>  
+                        <div className="text-start fontEstilo"><h1>Login</h1></div>
+                        <form onSubmit={this.handleLogin} className="custom-form">
+                        <div className="text-start fontEstilo">
+                            <div className="form-group row">
+                            <label htmlFor="staticEmail" className="col-sm-3 col-form-label ">Email</label>
+                            <div className="col-sm-9">
+                                <input type="email" name="Email" placeholder="Email" value={UserLogin.Email} onChange={this.handleInputChangeLogin} />
+                            </div>
+                            </div>
+                            <br />
+                            <div className="form-group row">
+                            <label htmlFor="staticEmail" className="col-sm-3 col-form-label custom-label">Password</label>
+                            <div className="col-sm-9">
+                                <input type="password" name="Password" placeholder="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin} />
+                            </div>
+                            </div>
+                            <br />
+                            <button type="submit" class=" botaoLogin">Login</button>
+                        </div>
+                        </form>
+                        <p>Não têm conta? <a href="#" onClick={this.handleButtonClick} >Registe-se</a></p> 
                     </div>}
                     
                 </div>
@@ -279,6 +291,7 @@ class Login extends Component {
             </div>
                 
         );
+        
     }
 }
 
