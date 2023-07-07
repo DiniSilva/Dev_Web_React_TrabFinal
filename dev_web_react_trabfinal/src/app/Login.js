@@ -128,14 +128,14 @@ class Login extends Component {
             method: "POST",
             headers: { "Content-Type": "application/json" },
         };
-
         fetch("https://localhost:7294/api/ClientesAPI/logout", requestOptions)
         .then(response => response.json())
         .then((result) => {
             if (result) {
                 this.state.isLogged = false;
                 this.state.LogId = null;
-                this.props.LoginStatus(false,null)
+                this.props.LoginStatus(false,null);
+                this.state.listaPerfil.splice(0,this.state.listaPerfil.length);
                 console.log("LOGIN FEITO!", this.state.isLogged, this.state.LogId );
             } else {
                 throw new Error("Logout failed");
