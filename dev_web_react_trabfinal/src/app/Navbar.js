@@ -17,7 +17,7 @@ class Navbar extends Component {
         return (
             <div className='sec'>
                 <nav className='navbar fixed-top navbar-dark'>
-                    <a class="navbar-brand" href=''><img src='https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png' class="d-inline-block"></img>Amogus</a>
+                    <a class="navbar-brand" href=''><img src='https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png' class="d-inline-block "></img>ReparaTECH</a>
                     <div className='nav-links'>
                         <ul>
                             <li class="nav-item"><a class="nav-link" href=''> HOME</a></li>

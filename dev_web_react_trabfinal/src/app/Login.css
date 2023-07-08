@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Bebas+Neue&display=swap');
+
 /* The sidebar menu */
 /* .sidebar {
   height: 100%;
@@ -89,18 +91,50 @@
   background-image: url('./Imagens/layer1.svg');
 }
 
-.butaoLogin btn {
-  border-radius: 10px; /* Adiciona cantos arredondados ao botão */
+.botaoLogin {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 5px; /* Adiciona cantos arredondados ao botão */
   background-color: #FCAF3C; /* Define a cor de fundo do botão */
-  color: white; /* Define a cor do texto do botão */
-  /* Outros estilos opcionais, como tamanho de fonte, preenchimento, etc. */
+  color: rgb(31, 30, 30); /* Define a cor do texto do botão */
+  text-align: center; /* Centraliza o texto do botão */
+  border: 1px solid black; /* Adiciona uma borda preta ao redor do botão */
+  padding: 10px 20px; /* Adiciona um preenchimento interno ao botão */
 }
+
+
 .fontEstilo {
-
   font-family: 'Bebas Neue', sans-serif;
-
 }
+
 .fontEstilo h1 {
   font-weight:500;
   font-size: 60px;
+}
+
+.inputEstilo{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #443E4A;
+}
+.inputEstilo:valid {
+  background-color: #443E4A;
+}
+
+.fontInput{
+  font-family: 'Agdasima', sans-serif;
+  color: white;
+}
+
+.listaEstilo{
+  background-color: transparent;
+  list-style: none;
+  text-align: start;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); 
+  border-radius: 10px; 
+  padding: 20px;
+}
+
+.listaEstilo li {
+  margin-bottom: 10px; /* Adiciona espaçamento entre os itens verticalmente */
 }

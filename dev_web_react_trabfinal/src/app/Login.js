@@ -188,7 +188,7 @@ class Login extends Component {
             }
             listaPerfil.push(
               <li className="list-group-item">
-                <div>{displayName}: {value}</div>
+                <div>{displayName} : {value}</div>
               </li>
             );
           }});
@@ -214,45 +214,61 @@ class Login extends Component {
                     
                 </div>    
                 {!isLogged ? (
-                <div className="offcanvas-body"  style={{ paddingTop: '200px' }}>
+                <div className="offcanvas-body"  style={{ paddingTop: registo ? '100px' : '200px' }}>
                    
                     {registo && <div>
-                        <h2>Criar Cliente</h2>
-                        <div className="row">
-                        <div className="col">
-                        <form onSubmit={this.handleSubmit}>
-                            <label>
-                            Nome:
-                            <input type="text" name="Nome" value={novoCliente.Nome} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            Morada:
-                            <input type="text" name="Morada" value={novoCliente.Morada} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            CodPostal:
-                            <input type="text" name="CodPostal" value={novoCliente.CodPostal} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            Email:
-                            <input type="email" name="Email" value={novoCliente.Email} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            Password:
-                            <input type="password" name="Password" value={this.state.password} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            Telemovel:
-                            <input type="text" name="Telemovel" value={novoCliente.Telemovel} onChange={this.handleInputChange} />
-                            </label>
-                            <label>
-                            NIF:
-                            <input type="text" name="Nif" value={novoCliente.Nif} onChange={this.handleInputChange} />
-                            </label>
-                            <button type="submit">Create</button>
+                        <div className="text-start fontEstilo"><h1>Registo</h1></div>
+                        <form onSubmit={this.handleSubmit} className="custom-form">
+                        <div className="text-start fontEstilo">
+                            <div className="form-group row">
+                                <label htmlFor="staticEmail" className="col-sm-3 col-form-label">Nome</label>
+                                <div className="col-sm-9">
+                                <input className="inputEstilo fontInput" type="text" placeholder=" Nome" name="Nome" value={novoCliente.Nome} onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label htmlFor="staticEmail" className="col-sm-3 col-form-label">Morada</label>
+                                <div className="col-sm-9">
+                                <input className="inputEstilo fontInput" type="text" placeholder=" Morada" name="Morada" value={novoCliente.Morada} onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label htmlFor="staticEmail" className="col-sm-3 col-form-label">Cód.Postal</label>
+                                <div className="col-sm-9">
+                                <input className="inputEstilo fontInput" type="text" placeholder=" XXXX-XXX TERRA" name="CodPostal" value={novoCliente.CodPostal} onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label htmlFor="staticEmail" className="col-sm-3 col-form-label">Email</label>
+                                <div className="col-sm-9">
+                                <input className="inputEstilo fontInput" type="email" placeholder=" Email" name="Email" value={novoCliente.Email} onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label htmlFor="staticEmail" className="col-sm-3 col-form-label">Password</label>
+                                <div className="col-sm-9">
+                                <input className="inputEstilo fontInput" type="password" placeholder=" Password" name="Password" value={this.state.password} onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label htmlFor="staticEmail" className="col-sm-3 col-form-label">Telemóvel</label>
+                                <div className="col-sm-9">
+                                <input className="inputEstilo fontInput" type="text" placeholder=" Telemóvel" name="Telemovel" value={novoCliente.Telemovel} onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label htmlFor="staticEmail" className="col-sm-3 col-form-label">NIF</label>
+                                <div className="col-sm-9">
+                                <input className="inputEstilo fontInput" type="text" placeholder=" NIF" name="Nif" value={novoCliente.Nif} onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="d-grid gap-2">
+                                <button type="submit" className="botaoLogin">Criar conta</button>
+                            </div>
+                            </div>
+
                         </form> 
-                        <p> <a href="#" onClick={this.handleButtonClick} >Tenho conta</a></p></div></div>  
-                    </div>}
+                        <p> <a href="#" onClick={this.handleButtonClick} >Tenho conta</a></p></div>}
                     {entrar && <div >
                         <div className="text-start fontEstilo"><h1>Login</h1></div>
                         <form onSubmit={this.handleLogin} className="custom-form">
@@ -260,18 +276,19 @@ class Login extends Component {
                             <div className="form-group row">
                             <label htmlFor="staticEmail" className="col-sm-3 col-form-label ">Email</label>
                             <div className="col-sm-9">
-                                <input type="email" name="Email" placeholder="Email" value={UserLogin.Email} onChange={this.handleInputChangeLogin} />
+                                <input class="inputEstilo fontInput"  type="email" placeholder="Email" name="Email" value={UserLogin.Email} onChange={this.handleInputChangeLogin} />
                             </div>
                             </div>
                             <br />
                             <div className="form-group row">
                             <label htmlFor="staticEmail" className="col-sm-3 col-form-label custom-label">Password</label>
                             <div className="col-sm-9">
-                                <input type="password" name="Password" placeholder="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin} />
+                                <input class="inputEstilo fontInput" type="password" placeholder="Password" name="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin} />
                             </div>
                             </div>
                             <br />
-                            <button type="submit" class=" botaoLogin">Login</button>
+                            <div class="d-grid gap-2"> <button type="submit" class=" botaoLogin">Entrar</button></div>
+                           
                         </div>
                         </form>
                         <p>Não têm conta? <a href="#" onClick={this.handleButtonClick} >Registe-se</a></p> 
@@ -280,12 +297,13 @@ class Login extends Component {
                 </div>
                 ) : (
                     <div class="offcanvas-body">
-                        <div>
-                            <ul class="list-group">
+                        <div className="text-start fontEstilo"><h1>Perfil</h1></div>
+                        <div className="fontEstilo">
+                            <ul class=" listaEstilo">
                                 {listaPerfil}
                             </ul>
                         </div>
-                        <button onClick={() => this.logout()}>LOGOUT</button> 
+                        <div class="d-grid gap-2"> <button  class=" botaoLogin" onClick={() => this.logout()}>Sair</button></div>
                     </div>
                 )}
             </div>
