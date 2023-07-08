@@ -153,11 +153,7 @@ class Loja extends Component {
                 <section id="loja" className='loja'>
                     <h1>Bem-vindo a ReparaTECH!</h1>
                     <h3>A sua referência confiável para reparação dos vossos diversos Dispositivos Eletrónicos! Contamos com uma equipa de técnicos altamente qualificados e experientes, prontos para ajudar em todas as situações.</h3>
-                    <h4>Desenvolvimento Web 2022/23</h4>
-                    <h4> Engenharia Informática</h4>
-                    <h5>Autores:</h5>
-                    <h5>23031 - Dinis Silva</h5>
-                    <h5>23035 - Francisco Silva</h5> 
+                    
                 </section>
 
                 <section id="areaEspecializacao" className='areaEspecializacao'>

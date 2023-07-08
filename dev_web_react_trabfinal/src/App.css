@@ -38,7 +38,7 @@
 }
 
 .layer{
-  background-image: url('./layers/layered-steps-normal.svg');
+  background-image: url('./layers/background_app.svg');
   background-repeat:repeat-y;
   background-color: #28242c;
 }
