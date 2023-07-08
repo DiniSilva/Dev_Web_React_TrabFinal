@@ -25,22 +25,19 @@ class Funcionario extends Component {
         // );
 
         return (
-            <> 
-                <section class="funcionario">
-                    
-                    <h4>Funcionario</h4>
-                    <div>
-                        <ul class="list-group">
-                            {listaFinal}
-                        </ul>
-                    </div>
+            <>
+                <h4>Funcionario</h4>
+                <div>
+                    <ul class="list-group">
+                        {listaFinal}
+                    </ul>
+                </div>
 
-                    <div class="col-6">
-                    </div>
-                   
-                    <a href='#/' className='hero-btn' >Loja</a>
-                    <a href='#/' className='hero-btn' >Area Cliente</a>
-                </section>
+                <div class="col-6">
+                </div>
+                
+                <a href='#/' className='hero-btn' >Loja</a>
+                <a href='#/' className='hero-btn' >Area Cliente</a>
             </>
         );
     }
