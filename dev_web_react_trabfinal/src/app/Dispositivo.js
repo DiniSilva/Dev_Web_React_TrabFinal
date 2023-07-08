@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./Dispositivo.css"
 
+
 class Dispositivo extends Component {
     constructor(props) {
         super(props);
@@ -59,36 +60,32 @@ class Dispositivo extends Component {
             }
         })
 
-        // this.props.lista.forEach(item => 
-        //     listaFinal.push(
-        //     <li className="list-group-item">
-        //         <div>Tipo: {item.tipo}</div>
-        //         <div>Data de Registo: {item.dataReg}</div>
-        //         <div>Modelo: {item.modelo}</div>
-        //         <div>Estado: {item.estado}</div>
-        //     </li>)
-        // );
-
         return (
             <> 
-                <section class="dispositivo">
-                    
-                    <h4>Dispositivo</h4>
-                    <div>
-                        <ul class="list-group">
-                            {listaDis}
-                        </ul>
+                {this.props.logged ? (
+                <div class="row">
+                
+                    <div class="col">
+                        <h4>Dispositivo</h4>
+                        <div>
+                            <ul class="listaEstilo2">
+                                {listaDis}
+                            </ul>
+                        </div>
                     </div>
-
-                    <h4>Reparacao</h4>
-                    <div>
-                        <ul class="list-group">
-                            {listaRep}
-                        </ul>
-                    </div>
-                   
+                    <div class="col">
+                        <h4>Reparacao</h4>
+                        <div>
+                            <ul class="listaEstilo2">
+                                {listaRep}
+                            </ul>
+                        </div>
+                    </div>  
+                </div>
+                ):(
                     <button onClick={() => this.teste()}>TESTE</button>
-                </section>
+                )}
+                
             </>
         );
     }

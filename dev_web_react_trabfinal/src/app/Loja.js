@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import "./Loja.css"
 
 import React, { Component } from 'react';
@@ -154,9 +153,9 @@ class Loja extends Component {
                 />
 
                 <section className='loja'>
-                    <h1>Ullamco incididunt dolore pariatur adipisicing.</h1>
-                    <p>Velit sint pariatur tempor non et enim. Sint minim sunt sit ea qui duis deserunt. Eiusmod veniam aute labore eu incididunt dolor commodo elit incididunt reprehenderit cillum adipisicing incididunt. Eu labore eu consectetur duis irure elit quis pariatur ad elit. <br/>Deserunt voluptate officia qui excepteur qui Lorem occaecat exercitation sint eu id. Culpa aliqua eu deserunt cillum et anim occaecat officia cupidatat.</p>
-                    <a href='#' className='hero-btn'  data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>&#9776; Open Sidebar</a>
+                    <h1>Bem-vindo a ReparaTECH!</h1>
+                    <h4>A sua referência confiável para reparação dos vossos diversos Dispositivos Eletrónicos! Contamos com uma equipa de técnicos altamente qualificados e experientes, prontos para ajudar em todas as situações.</h4>
+                    
                 </section>
                 
                 <Cliente />
@@ -171,10 +170,13 @@ class Loja extends Component {
                     />
                 </section>
 
+                <section id="dispositivo" className='dispositivo'>
                 <Dispositivo listaDispositivos={this.state.listaDispositivos} listaReparacaos={this.state.listaReparacaos}
                     buscarDispositivo={(id) => { this.buscarDispositivo(id) }}
                     logged={this.state.isLogged} logid={this.state.LogId}
+                    
                 />
+                </section>
 
             </>
         );

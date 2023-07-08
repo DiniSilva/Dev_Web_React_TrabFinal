@@ -37,4 +37,10 @@
   }
 }
 
+.layer{
+  background-image: url('./layers/layered-steps-normal.svg');
+  background-repeat:repeat-y;
+  background-color: #28242c;
+}
+
 

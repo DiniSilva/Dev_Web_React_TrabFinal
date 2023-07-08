@@ -8,6 +8,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+
   }
   
   .loja h1 {
@@ -38,4 +39,7 @@
     color: #fff;
     transition: 1s;
   }
-  
+
+  .dispositivo{
+    width: 100vh;
+  }

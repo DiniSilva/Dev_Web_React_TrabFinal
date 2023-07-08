@@ -7,7 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header layer">
         <Loja/>
       </header>
     </div>
