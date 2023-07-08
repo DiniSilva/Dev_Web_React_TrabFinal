@@ -1,10 +1,8 @@
 import "./Loja.css"
 
 import React, { Component } from 'react';
-import Cliente from './Cliente';
-import Reparacao from './Reparacao';
-import Funcionario from './Funcionario';
-import Dispositivo from './Dispositivo';
+import AreaEspecializacao from './AreaEspecializacao';
+import AreaCliente from './AreaCliente';
 import Login from './Login';
 import Navbar from './Navbar';
 
@@ -152,32 +150,30 @@ class Loja extends Component {
                     buscarCliente={(id) => {this.buscarCliente(id)}}
                 />
 
-                <section className='loja'>
+                <section id="loja" className='loja'>
                     <h1>Bem-vindo a ReparaTECH!</h1>
-                    <h4>A sua referência confiável para reparação dos vossos diversos Dispositivos Eletrónicos! Contamos com uma equipa de técnicos altamente qualificados e experientes, prontos para ajudar em todas as situações.</h4>
-                    
+                    <h3>A sua referência confiável para reparação dos vossos diversos Dispositivos Eletrónicos! Contamos com uma equipa de técnicos altamente qualificados e experientes, prontos para ajudar em todas as situações.</h3>
+                    <h4>Desenvolvimento Web 2022/23</h4>
+                    <h4> Engenharia Informática</h4>
+                    <h5>Autores:</h5>
+                    <h5>23031 - Dinis Silva</h5>
+                    <h5>23035 - Francisco Silva</h5> 
                 </section>
-                
-                <Cliente />
 
-                <Reparacao lista={this.state.listaClientes}
-                    buscarCliente={(id) => { this.buscarCliente(id) }}
-                />
-
-                <section id="funcionario" className='funcionario'>
-                    <Funcionario listaFuncionarios={this.state.listaFuncionarios}
+                <section id="areaEspecializacao" className='areaEspecializacao'>
+                    <AreaEspecializacao listaFuncionarios={this.state.listaFuncionarios}
                         buscarFuncionario={(id) => { this.buscarFuncionario(id) }}
                     />
                 </section>
 
-                <section id="dispositivo" className='dispositivo'>
-                <Dispositivo listaDispositivos={this.state.listaDispositivos} listaReparacaos={this.state.listaReparacaos}
-                    buscarDispositivo={(id) => { this.buscarDispositivo(id) }}
-                    logged={this.state.isLogged} logid={this.state.LogId}
-                    
-                />
+                <section id="areaCliente" className='areaCliente'>
+                    <AreaCliente 
+                        listaDispositivos={this.state.listaDispositivos} 
+                        listaReparacaos={this.state.listaReparacaos}
+                        buscarDispositivo={(id) => { this.buscarDispositivo(id) }}
+                        logged={this.state.isLogged} logid={this.state.LogId}
+                    />
                 </section>
-
             </>
         );
         

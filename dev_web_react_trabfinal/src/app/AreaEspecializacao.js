@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
-import "./Cliente.css"
+import "./AreaEspecializacao.css"
 
-class Cliente extends Component {
+class AreaEspecializacao extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
+        // obter os valores unicos da listaFuncionarios
+        let valoresUnicos = [...new Set(this.props.listaFuncionarios.map(item => item.especializacao))];
+
+        // mete os valores obtidos antes noutra lista
+        let listaFinal = valoresUnicos.map(item => (
+            <li className="list-group-item" key={item}>
+                <div>Especialização: {item}</div>
+            </li>
+        ));
+        
+        // this.props.listaFuncionarios.forEach(item => 
+        //     listaFinal.push(
+        //     <li className="list-group-item">
+        //         <div>Especialização: {item.especializacao}</div>
+        //     </li>)
+        // );
+
         return (
-            <>
-                <section className='cliente'>
+            <>  
+                <div className='cliente'>
                     <h1>Reparações</h1>
                     <p>Ipsum ullamco mollit amet ullamco velit minim commodo.</p>
             
@@ -27,12 +44,19 @@ class Cliente extends Component {
                             <p>Anim ullamco occaecat consectetur adipisicing excepteur pariatur labore mollit Lorem. Deserunt elit amet velit incididunt non dolore et magna labore ad. Minim nulla consequat eu minim. Sit sunt excepteur dolor laboris laborum. Aliquip nisi velit tempor veniam et eu veniam reprehenderit sit fugiat adipisicing occaecat veniam.</p>
                         </div>
                     </div>
-                    <a href='#/' className='hero-btn' >Loja</a>
-                    <a href='#/' className='hero-btn' >Reparações</a>
-                </section>
+                </div>
+
+                <div className='listaF'>
+                    <h4>AreaEspecializacao</h4>
+                    <div>
+                        <ul>
+                            {listaFinal}
+                        </ul>
+                    </div>
+                </div>
             </>
         );
     }
 }
 
-export default Cliente;
+export default AreaEspecializacao;

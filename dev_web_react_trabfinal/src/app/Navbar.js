@@ -6,24 +6,24 @@ class Navbar extends Component {
         super(props);
     }
 
-    scrollToTopo = () => {
-        const topoSection = document.getElementById('topo');
-        if (topoSection) {
-            topoSection.scrollIntoView({ behavior: 'smooth' });
+    scrollToLoja = () => {
+        const lojaSection = document.getElementById('sec');
+        if (lojaSection) {
+            lojaSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
-    scrollToFuncionario = () => {
-        const funcionarioSection = document.getElementById('funcionario');
-        if (funcionarioSection) {
-          funcionarioSection.scrollIntoView({ behavior: 'smooth' });
+    scrollToAreaEspecializacao = () => {
+        const areaEspecializacaoSection = document.getElementById('areaEspecializacao');
+        if (areaEspecializacaoSection) {
+            areaEspecializacaoSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
-    scrollToCliente = () => {
-        const clienteSection = document.getElementById('cliente');
-        if (clienteSection) {
-            clienteSection.scrollIntoView({ behavior: 'smooth' });
+    scrollToAreaCliente  = () => {
+        const areaClienteSection = document.getElementById('areaCliente');
+        if (areaClienteSection) {
+            areaClienteSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
@@ -43,16 +43,16 @@ class Navbar extends Component {
 
     render() {
         return (
-            <div className='sec'>
+            <div id='sec' className='sec'>
                 <nav className='navbar fixed-top navbar-dark'>
                     <a class="navbar-brand logo" href=''>ReparaTECH</a>
                     <div className='nav-links'>
                         <ul>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToTopo}>HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToFuncionario}>Funcionários</a></li>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToCliente}>Clientes</a></li>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToDispositivo}>Dispositivos</a></li>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToReparacao}>Reparação</a></li>
+                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToLoja}>Início</a></li>
+                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToAreaEspecializacao}>Especializações</a></li>
+                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToAreaCliente}>Área do Cliente</a></li>
+                            {/* <li class="nav-item"><a class="nav-link" onClick={this.scrollToDispositivo}>Dispositivos</a></li>
+                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToReparacao}>Reparação</a></li> */}
                             <li class="nav-item"><a class="nav-link" data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>LogIn &#9776;</a></li>
                         </ul>
                     </div>

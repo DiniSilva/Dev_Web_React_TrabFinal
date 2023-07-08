@@ -1,12 +1,13 @@
-/* ----------------------------------------- Dispositivo ---------------------------------------------------- */
-.listaEstilo2{
+/* ----------------------------------------- Area Cliente ---------------------------------------------------- */
+.listaCliente{
     background-color: transparent;
     list-style: none;
     text-align: start;
 }
 
-.listaEstilo2 li{
+.listaCliente li{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); 
     border-radius: 10px; 
     padding: 20px;
+    margin-bottom: 25px;
 }

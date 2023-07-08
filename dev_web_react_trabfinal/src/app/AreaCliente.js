@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import "./Dispositivo.css"
+import "./AreaCliente.css"
 
 
-class Dispositivo extends Component {
+class AreaCliente extends Component {
     constructor(props) {
         super(props);
     }
@@ -28,7 +28,7 @@ class Dispositivo extends Component {
             }
         });
 
-        //
+        // faz a lista de Dispostivos
         this.props.listaDispositivos.forEach(item => {
             // check para ver se as clienteFK's são iguais ao ID do Cliente
             if (item.clienteFK === this.props.logid){
@@ -44,7 +44,7 @@ class Dispositivo extends Component {
             }
         })
 
-        //
+        // faz a lista de Reparações
         this.props.listaReparacaos.forEach(item => {
             // check para ver se dispositivoFK é igual aos ID's obtidos antes
             if (listaID.includes(item.dispositivoFK)){
@@ -60,35 +60,31 @@ class Dispositivo extends Component {
             }
         })
 
-        return (
-            <> 
-                {this.props.logged ? (
-                <div class="row">
-                
-                    <div class="col">
-                        <h4>Dispositivo</h4>
-                        <div>
-                            <ul class="listaEstilo2">
-                                {listaDis}
-                            </ul>
+        if(this.props.logged) {
+            return (
+                <> 
+                    <div class="row">
+                        <div class="col">
+                            <h4>Dispositivos</h4>
+                            <div>
+                                <ul class="listaCliente">
+                                    {listaDis}
+                                </ul>
+                            </div>
                         </div>
+                        <div class="col">
+                            <h4>Reparação</h4>
+                            <div>
+                                <ul class="listaCliente">
+                                    {listaRep}
+                                </ul>
+                            </div>
+                        </div>  
                     </div>
-                    <div class="col">
-                        <h4>Reparacao</h4>
-                        <div>
-                            <ul class="listaEstilo2">
-                                {listaRep}
-                            </ul>
-                        </div>
-                    </div>  
-                </div>
-                ):(
-                    <button onClick={() => this.teste()}>TESTE</button>
-                )}
-                
-            </>
-        );
+                </>
+            );
+        } 
     }
 }
 
-export default Dispositivo;
+export default AreaCliente;
