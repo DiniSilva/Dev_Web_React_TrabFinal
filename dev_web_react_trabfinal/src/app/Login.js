@@ -144,6 +144,7 @@ class Login extends Component {
         .catch((error) => {
             console.log(error);
         });
+        this.scrollToLoja();
     };
 
     handleButtonClick = () => {
@@ -151,50 +152,68 @@ class Login extends Component {
           registo: !this.state.registo,
           entrar: !this.state.entrar
         });
-      };
+    };
 
-     buscarInfoCliente(id) {
+    buscarInfoCliente(id) {
         this.props.buscarCliente(id);
-        setTimeout(() => {console.log(this.props.dados);
-        let listaPerfil = this.state.listaPerfil;
-        if (typeof this.props.dados === "object") {
-          Object.keys(this.props.dados).forEach((key) => {
-            if (key !== "id" && key !== "userId" && key !== "listaDipositivos") {
-            let displayName = "";
-            const value = this.props.dados[key];
-            switch (key) {
-                case "nome":
-                    displayName = "Nome";
-                    break;
-                case "nif":
-                    displayName = "NIF";
-                    break;
-                case "morada":
-                    displayName = "Morada";
-                    break;
-                case "codPostal":
-                    displayName = "Código Postal";
-                    break;
-                case "email":
-                    displayName = "Email";
-                    break;
-                case "telemovel":
-                    displayName = "Telemovel";
-                    break;
-                
-                default:
-                    displayName = key; // Use the key as the display name by default
-                    break;
+        setTimeout(() => {
+            console.log(this.props.dados);
+            let listaPerfil = this.state.listaPerfil;
+            if (typeof this.props.dados === "object") {
+                Object.keys(this.props.dados).forEach((key) => {
+                    if (key !== "id" && key !== "userId" && key !== "listaDipositivos") {
+                        let displayName = "";
+                        const value = this.props.dados[key];
+                        switch (key) {
+                            case "nome":
+                                displayName = "Nome";
+                                break;
+                            case "nif":
+                                displayName = "NIF";
+                                break;
+                            case "morada":
+                                displayName = "Morada";
+                                break;
+                            case "codPostal":
+                                displayName = "Código Postal";
+                                break;
+                            case "email":
+                                displayName = "Email";
+                                break;
+                            case "telemovel":
+                                displayName = "Telemovel";
+                                break;
+                            
+                            default:
+                                displayName = key; // Use the key as the display name by default
+                                break;
+                        }
+                        listaPerfil.push(
+                            <li className="list-group-item">
+                                <div>{displayName} : {value}</div>
+                            </li>
+                        );
+                    }
+                });
+                this.setState({ listaPerfil }); 
             }
-            listaPerfil.push(
-              <li className="list-group-item">
-                <div>{displayName} : {value}</div>
-              </li>
-            );
-          }});
-          this.setState({ listaPerfil }); 
-        }},"500");
-      }
+        }, "500");
+        setTimeout(() => {this.scrollToAreaCliente()}, "500");          
+    }
+
+    scrollToAreaCliente = () => {
+        const areaClienteSection = document.getElementById('areaCliente');
+        if (areaClienteSection) {
+            areaClienteSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    scrollToLoja = () => {
+        const lojaSection = document.getElementById('sec');
+        if (lojaSection) {
+            lojaSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
       
     render() {
 
@@ -276,14 +295,14 @@ class Login extends Component {
                             <div className="form-group row">
                             <label htmlFor="staticEmail" className="col-sm-3 col-form-label ">Email</label>
                             <div className="col-sm-9">
-                                <input class="inputEstilo fontInput"  type="email" placeholder="Email" name="Email" value={UserLogin.Email} onChange={this.handleInputChangeLogin} />
+                                <input class="inputEstilo fontInput"  type="email" placeholder=" Email" name="Email" value={UserLogin.Email} onChange={this.handleInputChangeLogin} />
                             </div>
                             </div>
                             <br />
                             <div className="form-group row">
                             <label htmlFor="staticEmail" className="col-sm-3 col-form-label custom-label">Password</label>
                             <div className="col-sm-9">
-                                <input class="inputEstilo fontInput" type="password" placeholder="Password" name="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin} />
+                                <input class="inputEstilo fontInput" type="password" placeholder=" Password" name="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin} />
                             </div>
                             </div>
                             <br />

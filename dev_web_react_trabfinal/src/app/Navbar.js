@@ -44,7 +44,7 @@ class Navbar extends Component {
     render() {
         return (
             <div id='sec' className='sec'>
-                <nav className='navbar fixed-top navbar-dark'>
+                <nav className='navbar fixed-top navbar-dark bg-dark'>
                     <a class="navbar-brand logo" href=''>ReparaTECH</a>
                     <div className='nav-links'>
                         <ul>
@@ -56,7 +56,6 @@ class Navbar extends Component {
                             <li class="nav-item"><a class="nav-link" data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>LogIn &#9776;</a></li>
                         </ul>
                     </div>
-                    <div className='blur'></div> 
                 </nav>
             </div>
         );
