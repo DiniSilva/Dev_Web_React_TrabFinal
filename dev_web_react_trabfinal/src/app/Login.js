@@ -304,7 +304,7 @@ class Login extends Component {
                                         <label htmlFor="staticEmail" className="col-sm-3 col-form-label ">Email</label>
                                         <div className="col-sm-9">
                                             <input className="inputEstilo fontInput" type="email" placeholder=" Email" name="Email" value={UserLogin.Email} onChange={this.handleInputChangeLogin} required/>
-                                            <div className="valid-feedback">Valido.</div>
+                                            <div className="valid-feedback">Válido.</div>
                                             <div className="invalid-feedback">Por favor escreva o seu Email correto.</div>
                                         </div>
                                     </div>
@@ -313,7 +313,7 @@ class Login extends Component {
                                         <label htmlFor="staticEmail" className="col-sm-3 col-form-label custom-label">Password</label>
                                         <div className="col-sm-9">
                                             <input className="inputEstilo fontInput" type="password" placeholder=" Password" name="Password" value={UserLogin.Password} onChange={this.handleInputChangeLogin} required/>
-                                            <div className="valid-feedback">Valido.</div>
+                                            <div className="valid-feedback">Válido.</div>
                                             <div className="invalid-feedback">Por favor escreva a sua Password.</div>
                                         </div>
                                     </div>

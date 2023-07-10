@@ -154,14 +154,16 @@ class Loja extends Component {
                     <h1>Bem-vindo a ReparaTECH!</h1>
                     <h3>A sua referência confiável para reparação dos vossos diversos Dispositivos Eletrónicos! Contamos com uma equipa de técnicos altamente qualificados e experientes, prontos para ajudar em todas as situações.</h3>   
                 </section>
-
+                <br></br>
+                <br></br>
                 <section id="areaEspecializacao" className='areaEspecializacao'>
                     <AreaEspecializacao listaFuncionarios={this.state.listaFuncionarios}
                         buscarFuncionario={(id) => { this.buscarFuncionario(id) }}
                     />
                 </section>
-
-                <section id="areaCliente" className='areaCliente'>
+                <br></br>
+                <br></br>
+                <section id="areaCliente" className='areaCliente' >
                     <AreaCliente 
                         listaDispositivos={this.state.listaDispositivos} 
                         listaReparacaos={this.state.listaReparacaos}
@@ -169,6 +171,7 @@ class Loja extends Component {
                         logged={this.state.isLogged} logid={this.state.LogId}
                     />
                 </section>
+                <br></br>
             </>
         );
         

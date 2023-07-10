@@ -60,28 +60,31 @@ class AreaCliente extends Component {
             }
         })
 
-        if(true) {
+        if(this.props.logged) {
             return (
                 <> 
-                    <ul className="nav nav-tabs" id="myTab" role="tablist">
-                        <li className="nav-item" role="presentation">
-                            <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Dispositivos</button>
-                        </li>
-                        <li className="nav-item" role="presentation">
-                            <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reparações</button>
-                        </li>
-                        
-                    </ul>
-                    <div className="tab-content" id="myTabContent">
-                        <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
-                            <ul className="listaCliente">
-                                    {listaDis}
-                            </ul>
-                        </div>
-                        <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
-                            <ul className="listaCliente">
-                                    {listaRep}
-                            </ul>
+                    <div className='text-start' style={{width:"100%"}}><h2>Área Cliente</h2></div>
+                    <div className='caixa'>
+                        <ul className="nav nav-tabs" id="myTab" role="tablist">
+                            <li className="nav-item" role="presentation"  style={{width:'50%'}}>
+                                <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style={{width:'100%'}}>Dispositivos</button>
+                            </li>
+                            <li className="nav-item" role="presentation"  style={{width:'50%'}}>
+                                <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style={{width:'100%'}} >Reparações</button>
+                            </li>
+                            
+                        </ul>
+                        <div className="tab-content" id="myTabContent">
+                            <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
+                                <ul className="listaCliente">
+                                        {listaDis}
+                                </ul>
+                            </div>
+                            <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
+                                <ul className="listaCliente">
+                                        {listaRep}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </>
