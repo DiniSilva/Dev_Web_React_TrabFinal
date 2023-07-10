@@ -1,11 +1,20 @@
 /* ----------------------------------------- Area Especializacao ---------------------------------------------------- */
 
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
 .areaEsp {
     width: 50%;
     margin: auto;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 25px;
+}
+
+.areaEsp h1{
+    font-size: 50px;
+    font-weight: 600;
+    padding-bottom: 30px;
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 .areaEsp h3 {
@@ -14,14 +23,21 @@
 }
 
 .areaEsp p {
+    color: #fff;
     font-size: 20px;
     text-shadow: 2px 2px 1px #000;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    opacity: 1;
 }
 
-h1 {
+/* h1 {
     font-size: 36px;
     font-weight: 600;
-}
+    padding-bottom: 30px;
+    font-family: 'Chakra Petch', sans-serif;
+} */
 
 p {
     color: #fff;
@@ -59,11 +75,33 @@ p {
 }
 
 .especializacao-col:hover {
-    background-color: rgb(240, 188, 124);
-    color: #000;
-    text-shadow: 5px 5px 10px #807516;
-    box-shadow: 0 0 10px 0px rgb(236, 206, 124);
+    background-color: #A85261;
+    box-shadow: 0 0 15px 0px #493135;
+    color: #222020;
+    text-shadow: 5px 5px 20px #614848;
 }
+
+.especializacao h4 {
+    padding-top: 150px;
+    padding-bottom: 20px;
+    font-size: 50px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.carousel-item {
+    display: block !important;
+}
+
+.carousel-caption h3 {
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+/* .carousel-item h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px;
+    opacity: 1;
+} */
 
 /*.especializacao {
     width: 80%;
@@ -129,14 +167,3 @@ p {
     background-size: cover;
     box-shadow: 0 0 20px 0px rgba(41, 53, 70);
 } */
-
-.h3 {
-    text-align: center;
-    font-weight: 600;
-    margin: 10px;
-    opacity: 1;
-}
-
-.carousel-item {
-    display: block !important;
-}

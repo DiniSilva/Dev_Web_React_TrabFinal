@@ -33,17 +33,13 @@ class AreaEspecializacao extends Component {
         return (
             <>  
                 <div className="areaEsp">
-                    <h1>Reparações</h1>
-                    <p>Ipsum ullamco mollit amet ullamco velit minim commodo.</p>
-                
+                    <h1>Os Nossos Tipos de Reparações:</h1>
                     <div id="demo" className="carousel slide carousel-fade" data-bs-ride="carousel">
-
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#demo" data-bs-slide-to="0" className="active"></button>
                             <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                             <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                         </div>
-
                         <div className="carousel-inner">
                             <div className="carousel-item active" data-bs-interval="10000">
                                 <img src="https://img.freepik.com/free-photo/serviceman-uses-magnifier-screwdriver-repair-damaged-smartphone-electronic-workshop_613910-20797.jpg?w=1380&t=st=1688900751~exp=1688901351~hmac=8cbb8fcc3556e72fe8e20e1f1a6bc7a4fc87f9578e16dc08214f72771384d5dd" alt="Los Angeles" className="d-block rounded-5" style={{width:"100%"}}/>
@@ -81,9 +77,6 @@ class AreaEspecializacao extends Component {
                     <h4>As Nossas Currentes Especializações:</h4>
                     <div className='especializacao-row'>
                         {listaTeste}
-                        <div className='especializacao-col'>
-                            <h3>Android</h3>
-                        </div>
                     </div>
                 </div>
             </>

@@ -45,7 +45,7 @@ class Navbar extends Component {
         return (
             <div id='sec' className='sec'>
                 <nav className='navbar fixed-top navbar-dark bg-dark'>
-                    <a className="navbar-brand logo" href=''>ReparaTECH</a>
+                    <a className="navbar-brand logo" onClick={this.scrollToLoja}>ReparaTECH</a>
                     <div className='nav-links'>
                         <ul>
                             <li className="nav-item"><a className="nav-link" onClick={this.scrollToLoja}>Início</a></li>
