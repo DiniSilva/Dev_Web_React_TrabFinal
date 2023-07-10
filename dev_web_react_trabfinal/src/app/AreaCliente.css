@@ -1,4 +1,7 @@
 /* ----------------------------------------- Area Cliente ---------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
 .listaCliente{
     background-color: transparent;
     list-style: none;
@@ -6,15 +9,39 @@
 }
 
 .listaCliente li{
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); 
-    border-radius: 10px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);  
     padding: 20px;
     margin:25px;
+    margin-left: 0px;
 }
 
 .caixa{
-    border-radius: 10px; 
+   
     border: 2px solid rgb(73, 72, 72);
-    background-color: rgba(214, 185, 157, 0.11);
+    background-color:#332e38;
     padding-bottom: 20px;
+
+}
+
+.botao{
+    width: 100%;
+    color: gray;
+}
+
+.nav-tabs{
+    border-bottom: 0px solid gray !important;
+}
+
+.nav-link{
+    border-radius: 0% !important;
+
+}
+
+.nav-link:hover{
+    border-color: gray !important;
+}
+
+.fonte_area{
+    font-family: 'Chakra Petch', sans-serif;
+    margin-bottom: 30px;
 }

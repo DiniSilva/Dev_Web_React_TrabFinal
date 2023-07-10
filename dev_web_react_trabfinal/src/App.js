@@ -25,7 +25,7 @@ function App() {
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 
                 <h6 className="text-uppercase fw-bold mb-4">
-                  <i className="fas fa-gem me-3"></i>Trabalho Info
+                  Trabalho Info
                 </h6>
                 <h6>Desenvolvimento Web 2022/23</h6>
                 <h6> Engenharia Informática</h6>
@@ -71,8 +71,10 @@ function App() {
                 <h6 className="text-uppercase fw-bold mb-4">
                   Contato
                 </h6>
-                <p><i className="fas fa-envelope me-3"></i> aluno23031@ipt.pt</p>
-                <p><i className="fas fa-envelope me-3"></i>aluno23035@ipt.pt</p>
+                <p>Daniel Filipe - 912123123</p>
+                <p>Leia Marques - 962231123</p>
+                <p>Dinis Silva - aluno23031@ipt.pt</p>
+                <p>Francisco Silva - aluno23035@ipt.pt</p>
               </div>
             </div>
           </div>

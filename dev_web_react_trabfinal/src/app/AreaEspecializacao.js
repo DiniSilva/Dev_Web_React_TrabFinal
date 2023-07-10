@@ -74,9 +74,35 @@ class AreaEspecializacao extends Component {
                 </div>
 
                 <div className='especializacao'>
-                    <h4>As Nossas Currentes Especializações:</h4>
+                    <h4>Somos especializados em:</h4>
                     <div className='especializacao-row'>
                         {listaTeste}
+                    </div>
+                </div>
+                <br></br>
+                <div className="container ">
+                    <div className="row sug">
+                        <div className="  col-sm-4 caixa_sug ">
+                        <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/4233/4233839.png' className='sug_icon'></img></div>
+                            <div className="sugestao">
+                                <div className="sugestao_titulo">Faça o seu pedido sem compromisso</div>
+                                <p className="sugestao_descr">Telefone a um dos nossos profissionais ou dirija-se á nossa loja física para fazer pedidos de reparação.</p>
+                            </div>
+                        </div>
+                        <div className="col-sm-4 caixa_sug pad">
+                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/2907/2907963.png' className='sug_icon'></img></div>
+                            <div className="sugestao">
+                                <div className="sugestao_titulo">Receba vários orçamentos grátis</div>
+                                <p className="sugestao_descr">Converse com os/as profissionais para receber orçamentos dos nossos funcionarios dependendo do seu problema.</p>
+                            </div>
+                        </div>
+                        <div className=" col-sm-4 caixa_sug " >
+                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/1698/1698478.png' className='sug_icon'></img></div>
+                            <div className="sugestao">
+                                <div className="sugestao_titulo">Visualizar dispositivos/estado de reparação</div>
+                                <p className="sugestao_descr">Ao se registar é possivel acessar a sua área de cliente e verificar o seu histórico de dispositivos/reparações.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>
