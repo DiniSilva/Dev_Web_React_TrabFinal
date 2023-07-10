@@ -152,8 +152,7 @@ class Loja extends Component {
 
                 <section id="loja" className='loja'>
                     <h1>Bem-vindo a ReparaTECH!</h1>
-                    <h3>A sua referência confiável para reparação dos vossos diversos Dispositivos Eletrónicos! Contamos com uma equipa de técnicos altamente qualificados e experientes, prontos para ajudar em todas as situações.</h3>
-                    
+                    <h3>A sua referência confiável para reparação dos vossos diversos Dispositivos Eletrónicos! Contamos com uma equipa de técnicos altamente qualificados e experientes, prontos para ajudar em todas as situações.</h3>   
                 </section>
 
                 <section id="areaEspecializacao" className='areaEspecializacao'>

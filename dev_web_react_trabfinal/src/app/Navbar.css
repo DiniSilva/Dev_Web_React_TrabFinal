@@ -11,7 +11,7 @@
 }
 
 .navbar-brand {
-    font-size: 40px !important;
+    font-size: 30px !important;
 }
 
 .logo {
@@ -19,7 +19,7 @@
     font-family: 'Nabla', cursive;
 }
 
-.blur {
+/* .blur {
     position: fixed;
     top: 0;
     width: 100%;
@@ -27,7 +27,7 @@
     z-index:-1;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-}
+} */
 
 .nav-links {
     flex: 1;
@@ -37,7 +37,9 @@
 .nav-links ul li {
     list-style: none;
     display: inline-block;
-    padding: 8px 12px;
+    /* padding: 8px 12px; */
+    padding-right: 20px;
+    margin-top: 1rem;
     position: relative;
 }
 
@@ -45,7 +47,7 @@
     content: '';
     width: 0%;
     height: 2px;
-    background: #afad3f;
+    background: #e0de55;
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -53,4 +55,5 @@
 
 .nav-links ul li:hover::after {
     width: 100%;
+    background: #fcaf3c
 }

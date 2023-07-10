@@ -12,6 +12,11 @@
 
 .loja h1 {
   font-size: 62px;
+  text-shadow: 2px 2px 10px #000;
+}
+
+.loja h3 {
+  text-shadow: 2px 2px 10px #000;
 }
 
 .loja h4 {

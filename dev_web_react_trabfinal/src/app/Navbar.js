@@ -45,15 +45,15 @@ class Navbar extends Component {
         return (
             <div id='sec' className='sec'>
                 <nav className='navbar fixed-top navbar-dark bg-dark'>
-                    <a class="navbar-brand logo" href=''>ReparaTECH</a>
+                    <a className="navbar-brand logo" href=''>ReparaTECH</a>
                     <div className='nav-links'>
                         <ul>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToLoja}>Início</a></li>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToAreaEspecializacao}>Especializações</a></li>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToAreaCliente}>Área do Cliente</a></li>
-                            {/* <li class="nav-item"><a class="nav-link" onClick={this.scrollToDispositivo}>Dispositivos</a></li>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToReparacao}>Reparação</a></li> */}
-                            <li class="nav-item"><a class="nav-link" data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>LogIn &#9776;</a></li>
+                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToLoja}>Início</a></li>
+                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaEspecializacao}>Especializações</a></li>
+                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaCliente}>Área do Cliente</a></li>
+                            {/* <li className="nav-item"><a className="nav-link" onClick={this.scrollToDispositivo}>Dispositivos</a></li>
+                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToReparacao}>Reparação</a></li> */}
+                            <li className="nav-item"><a className="nav-link" data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>LogIn &#9776;</a></li>
                         </ul>
                     </div>
                 </nav>
