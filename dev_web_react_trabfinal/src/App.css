@@ -43,4 +43,6 @@
   background-color: #28242c;
 }
 
-
+p {
+  padding: 0px !important;
+}
