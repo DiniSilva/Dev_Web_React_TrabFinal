@@ -32,8 +32,34 @@ class AreaEspecializacao extends Component {
 
         return (
             <>  
+                <div className="container ">
+                    <div className="row sug">
+                        <div className="  col-sm-4 caixa_sug ">
+                        <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/4233/4233839.png' className='sug_icon'></img></div>
+                            <div className="sugestao">
+                                <div className="sugestao_titulo">Faça o seu pedido sem compromisso</div>
+                                <p className="sugestao_descr">Telefone a um dos nossos profissionais ou dirija-se á nossa loja física para fazer pedidos de reparação.</p>
+                            </div>
+                        </div>
+                        <div className="col-sm-4 caixa_sug pad">
+                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/2907/2907963.png' className='sug_icon'></img></div>
+                            <div className="sugestao">
+                                <div className="sugestao_titulo">Receba vários orçamentos grátis</div>
+                                <p className="sugestao_descr">Converse com os/as profissionais para receber orçamentos dos nossos funcionarios dependendo do seu problema.</p>
+                            </div>
+                        </div>
+                        <div className=" col-sm-4 caixa_sug " >
+                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/1698/1698478.png' className='sug_icon'></img></div>
+                            <div className="sugestao">
+                                <div className="sugestao_titulo">Visualizar dispositivos/estado de reparação</div>
+                                <p className="sugestao_descr">Ao se registar é possivel acessar a sua área de cliente e verificar o seu histórico de dispositivos/reparações.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className="areaEsp">
-                    <h1>Os Nossos Tipos de Reparações:</h1>
+                    
+                    <h1>Reparamos:</h1>
                     <div id="demo" className="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#demo" data-bs-slide-to="0" className="active"></button>
@@ -80,31 +106,7 @@ class AreaEspecializacao extends Component {
                     </div>
                 </div>
                 <br></br>
-                <div className="container ">
-                    <div className="row sug">
-                        <div className="  col-sm-4 caixa_sug ">
-                        <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/4233/4233839.png' className='sug_icon'></img></div>
-                            <div className="sugestao">
-                                <div className="sugestao_titulo">Faça o seu pedido sem compromisso</div>
-                                <p className="sugestao_descr">Telefone a um dos nossos profissionais ou dirija-se á nossa loja física para fazer pedidos de reparação.</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 caixa_sug pad">
-                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/2907/2907963.png' className='sug_icon'></img></div>
-                            <div className="sugestao">
-                                <div className="sugestao_titulo">Receba vários orçamentos grátis</div>
-                                <p className="sugestao_descr">Converse com os/as profissionais para receber orçamentos dos nossos funcionarios dependendo do seu problema.</p>
-                            </div>
-                        </div>
-                        <div className=" col-sm-4 caixa_sug " >
-                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/1698/1698478.png' className='sug_icon'></img></div>
-                            <div className="sugestao">
-                                <div className="sugestao_titulo">Visualizar dispositivos/estado de reparação</div>
-                                <p className="sugestao_descr">Ao se registar é possivel acessar a sua área de cliente e verificar o seu histórico de dispositivos/reparações.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </>
         );
     }
