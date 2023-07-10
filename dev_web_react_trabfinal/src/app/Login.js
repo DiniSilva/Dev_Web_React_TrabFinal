@@ -20,7 +20,7 @@ class Login extends Component {
             Email: "", 
             Password: ""
         }, isLogged: false, LogId: null, registo: false,
-        entrar: true, listaPerfil:[],
+        entrar: true, listaPerfil:[]
     }
 
     handleInputChange = (event) => {

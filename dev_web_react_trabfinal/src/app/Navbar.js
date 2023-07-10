@@ -50,9 +50,11 @@ class Navbar extends Component {
                         <ul>
                             <li className="nav-item"><a className="nav-link" onClick={this.scrollToLoja}>Início</a></li>
                             <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaEspecializacao}>Especializações</a></li>
-                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaCliente}>Área do Cliente</a></li>
-                            {/* <li className="nav-item"><a className="nav-link" onClick={this.scrollToDispositivo}>Dispositivos</a></li>
-                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToReparacao}>Reparação</a></li> */}
+                            {this.props.logged ? (
+                                <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaCliente}>Área do Cliente</a></li>
+                            ) : (
+                                <a></a>
+                            )}
                             <li className="nav-item"><a className="nav-link" data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>LogIn &#9776;</a></li>
                         </ul>
                     </div>

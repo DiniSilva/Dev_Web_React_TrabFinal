@@ -142,9 +142,12 @@ class Loja extends Component {
         
         return (
             <>
-                <Navbar />
+                <Navbar
+                    logged={this.state.isLogged} 
+                />
 
-                <Login buscar={() => { this.buscarDadosClientes() }}
+                <Login 
+                    buscar={() => { this.buscarDadosClientes() }}
                     LoginStatus={(logged, id) => {this.handelLoginStatus(logged, id)}}
                     dados={this.state.dadosCliente}
                     buscarCliente={(id) => {this.buscarCliente(id)}}
@@ -157,7 +160,8 @@ class Loja extends Component {
                 <br></br>
                 <br></br>
                 <section id="areaEspecializacao" className='areaEspecializacao'>
-                    <AreaEspecializacao listaFuncionarios={this.state.listaFuncionarios}
+                    <AreaEspecializacao 
+                        listaFuncionarios={this.state.listaFuncionarios}
                         buscarFuncionario={(id) => { this.buscarFuncionario(id) }}
                     />
                 </section>
