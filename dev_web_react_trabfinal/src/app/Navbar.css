@@ -1,24 +1,24 @@
+/* ----------------------------------------- Navbar ---------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+
 .sec {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(28, 29, 29, 0.7), rgba(61, 66, 78, 0.7)), url(https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg);
+    background-image: url('./Imagens/layer_prin.svg');
     background-position: center;
     background-size: cover;
     position: relative;
+    border-bottom: 2px solid #000000;
 }
 
-nav img {
-    width: 75px;
+.navbar-brand {
+    font-size: 30px !important;
 }
 
-.blur {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    min-height: 90px;
-    z-index:-1;
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+.logo {
+    padding-left: 30px;
+    font-family: 'Nabla', cursive;
 }
 
 .nav-links {
@@ -29,7 +29,8 @@ nav img {
 .nav-links ul li {
     list-style: none;
     display: inline-block;
-    padding: 8px 12px;
+    padding-right: 20px;
+    margin-top: 1rem;
     position: relative;
 }
 
@@ -37,12 +38,13 @@ nav img {
     content: '';
     width: 0%;
     height: 2px;
-    background: #a4cad4;
+    background: #e0de55;
     display: block;
-    margin: auto;
+
     transition: 0.5s;
 }
 
 .nav-links ul li:hover::after {
     width: 100%;
+    background: #fcaf3c
 }

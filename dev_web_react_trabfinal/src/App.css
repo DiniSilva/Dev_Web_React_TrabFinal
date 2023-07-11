@@ -37,4 +37,14 @@
   }
 }
 
+/* ------------------------------------------------------------------------------- */
 
+.layer{
+  background-image: url('./app/Imagens/background_app.svg');
+  background-repeat:repeat-y;
+  background-color: #28242c;
+}
+
+p {
+  padding: 0px !important;
+}

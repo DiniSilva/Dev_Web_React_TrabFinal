@@ -6,28 +6,55 @@ class Navbar extends Component {
         super(props);
     }
 
-    scrollToFuncionario = () => {
-        const funcionarioSection = document.getElementById('funcionario');
-        if (funcionarioSection) {
-          funcionarioSection.scrollIntoView({ behavior: 'smooth' });
+    //função que faz scroll para o topo da loja
+    scrollToLoja = () => {
+        const lojaSection = document.getElementById('sec');
+        if (lojaSection) {
+            lojaSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    //função que faz scroll para a area de especialização
+    scrollToAreaEspecializacao = () => {
+        const areaEspecializacaoSection = document.getElementById('areaEspecializacao');
+        if (areaEspecializacaoSection) {
+            areaEspecializacaoSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    //função que faz scroll para a area de cliente
+    scrollToAreaCliente  = () => {
+        const areaClienteSection = document.getElementById('areaCliente');
+        if (areaClienteSection) {
+            areaClienteSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    //função que faz scroll para o fim da página/footer
+    scrollToFoot = () => {
+        const footer = document.getElementById('foot');
+        if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
     render() {
         return (
-            <div className='sec'>
-                <nav className='navbar fixed-top navbar-dark'>
-                    <a class="navbar-brand" href=''><img src='https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png' class="d-inline-block"></img>Amogus</a>
+            <div id='sec' className='sec'>
+                <nav className='navbar fixed-top navbar-dark bg-dark'>
+                    <a className="navbar-brand logo" onClick={this.scrollToLoja}>ReparaTECH</a>
                     <div className='nav-links'>
                         <ul>
-                            <li class="nav-item"><a class="nav-link" href=''> HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" onClick={this.scrollToFuncionario}>Funcionarios</a></li>
-                            <li class="nav-item"><a class="nav-link" href=''>Course</a></li>
-                            <li class="nav-item"><a class="nav-link" href=''>IDK</a></li>
-                            <li class="nav-item"><a class="nav-link" data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>LogIn &#9776;</a></li>
+                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToLoja}>Início</a></li>
+                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToFoot}>Fim</a></li>
+                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaEspecializacao}>Especializações</a></li>
+                            {this.props.logged ? (
+                                <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaCliente}>Área do Cliente</a></li>
+                            ) : (
+                                <a></a>
+                            )}
+                            <li className="nav-item"><a className="nav-link" data-bs-toggle='offcanvas' data-bs-target='#sidebar' aria-controls='sidebar'>LogIn &#9776;</a></li>
                         </ul>
                     </div>
-                    <div className='blur'></div> 
                 </nav>
             </div>
         );

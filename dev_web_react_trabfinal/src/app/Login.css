@@ -1,60 +1,12 @@
+/* ----------------------------------------- Login ---------------------------------------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-/* The sidebar menu */
-/* .sidebar {
-  height: 100%;
-  width: 0; 
-  position: fixed; 
-  z-index: 9999;
-  top: 0;
-  right: 0;
-  background-color: #111; 
-  overflow-x: hidden;
-  padding-top: 60px; 
-  transition: 0.5s; 
-}
-  */
-/* The sidebar links */
-/* .sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-} */
-
-/* When you mouse over the navigation links, change their color */
-/* .sidebar a:hover {
-  color: #f1f1f1;
-} */
-
-/* Position and style the close button (top right corner) */
-/* .sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-} */
-
-/* The button used to open the sidebar */
-/* .openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-} */
-
-/* .openbtn:hover {
-  background-color: #444;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Bebas+Neue&display=swap');
 
 .custom-form {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Adiciona um efeito de sombra mais notável ao redor do formulário */
-  border-radius: 10px; /* Adiciona cantos arredondados ao formulário */
-  padding: 20px; /* Adiciona o preenchimento desejado ao redor do formulário */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 10px; 
+  padding: 20px; 
 }
 .custom-shape-divider-bottom-1688754120 {
   position: absolute;
@@ -89,18 +41,49 @@
   background-image: url('./Imagens/layer1.svg');
 }
 
-.butaoLogin btn {
-  border-radius: 10px; /* Adiciona cantos arredondados ao botão */
-  background-color: #FCAF3C; /* Define a cor de fundo do botão */
-  color: white; /* Define a cor do texto do botão */
-  /* Outros estilos opcionais, como tamanho de fonte, preenchimento, etc. */
+.botaoLogin {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 5px; 
+  background-color: #FCAF3C; 
+  color: rgb(31, 30, 30);
+  text-align: center; 
+  border: 1px solid black;
+  padding: 10px 20px; 
 }
+
 .fontEstilo {
-
   font-family: 'Bebas Neue', sans-serif;
-
 }
+
 .fontEstilo h1 {
   font-weight:500;
   font-size: 60px;
+}
+
+.inputEstilo{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #443E4A;
+}
+.inputEstilo:valid {
+  background-color: #443E4A;
+}
+
+.fontInput{
+  font-family: 'Agdasima', sans-serif;
+  color: white;
+}
+
+.listaEstilo{
+  background-color: transparent;
+  list-style: none;
+  text-align: start;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); 
+  border-radius: 10px; 
+  padding: 20px;
+}
+
+.listaEstilo li {
+  margin-bottom: 10px;
 }

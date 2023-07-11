@@ -1,0 +1,113 @@
+/* ----------------------------------------- Area Especializacao ---------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+.areaEsp {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+.areaEsp h1{
+    font-size: 50px;
+    font-weight: 600;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.areaEsp h3 {
+    font-size: 35px;
+    text-shadow: 2px 2px 1px #000;
+}
+
+.areaEsp p {
+    color: #fff;
+    font-size: 20px;
+    text-shadow: 2px 2px 1px #000;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    opacity: 1;
+}
+
+p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    opacity: 1;
+}
+
+.especializacao {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.especializacao-row {
+    margin-top: 1%;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.especializacao-col {
+    flex-basis: 31%;
+    background-color: rgba(214, 185, 157, 0.11);
+    border-radius: 10px;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.2s;
+    flex-grow: 1;
+}
+
+.especializacao-col:hover {
+    background-color: #A85261;
+    box-shadow: 0 0 15px 0px #493135;
+    color: #222020;
+    text-shadow: 5px 5px 20px #614848;
+}
+
+.especializacao h4 {
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.carousel-item {
+    display: block !important;
+}
+
+.carousel-caption h3 {
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.sug_icon{
+    width:80px;
+    height: 80px;
+    filter: invert(100%);
+}
+
+.sug{
+    margin-top: 40px;
+    gap:10px;
+    display: flex;
+    flex-wrap: nowrap !important;
+
+}
+
+.caixa_sug{
+    border: 2px solid gray;
+    padding-top: 5px;
+    background-color: rgba(255, 254, 254, 0.11);
+}
+
+.pad{
+    padding: 20px;
+}
