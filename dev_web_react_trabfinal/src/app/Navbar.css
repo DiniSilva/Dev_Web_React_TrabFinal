@@ -1,3 +1,5 @@
+/* ----------------------------------------- Navbar ---------------------------------------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
 
 .sec {
@@ -19,16 +21,6 @@
     font-family: 'Nabla', cursive;
 }
 
-/* .blur {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    min-height: 90px;
-    z-index:-1;
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-} */
-
 .nav-links {
     flex: 1;
     text-align: right;
@@ -37,7 +29,6 @@
 .nav-links ul li {
     list-style: none;
     display: inline-block;
-    /* padding: 8px 12px; */
     padding-right: 20px;
     margin-top: 1rem;
     position: relative;

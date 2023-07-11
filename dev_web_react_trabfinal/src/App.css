@@ -37,8 +37,10 @@
   }
 }
 
+/* ------------------------------------------------------------------------------- */
+
 .layer{
-  background-image: url('./layers/background_app.svg');
+  background-image: url('./app/Imagens/background_app.svg');
   background-repeat:repeat-y;
   background-color: #28242c;
 }

@@ -11,45 +11,32 @@ class AreaEspecializacao extends Component {
         let valoresUnicos = [...new Set(this.props.listaFuncionarios.map(item => item.especializacao))];
 
         // mete os valores obtidos antes noutra lista
-        let listaFinal = valoresUnicos.map(item => (
-            <li className="list-group-item" key={item}>
-                <div>Especialização: {item}</div>
-            </li>
-        ));
-
         let listaTeste = valoresUnicos.map(item => (
             <div className='especializacao-col' key={item}>
                 <h3>{item}</h3>
             </div>
         ));
-        
-        // this.props.listaFuncionarios.forEach(item => 
-        //     listaFinal.push(
-        //     <li className="list-group-item">
-        //         <div>Especialização: {item.especializacao}</div>
-        //     </li>)
-        // );
 
         return (
             <>  
                 <div className="container ">
                     <div className="row sug">
                         <div className="  col-sm-4 caixa_sug ">
-                        <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/4233/4233839.png' className='sug_icon'></img></div>
+                        <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/4233/4233839.png' className='sug_icon' alt=''></img></div>
                             <div className="sugestao">
                                 <div className="sugestao_titulo">Faça o seu pedido sem compromisso</div>
                                 <p className="sugestao_descr">Telefone a um dos nossos profissionais ou dirija-se á nossa loja física para fazer pedidos de reparação.</p>
                             </div>
                         </div>
                         <div className="col-sm-4 caixa_sug pad">
-                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/2907/2907963.png' className='sug_icon'></img></div>
+                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/2907/2907963.png' className='sug_icon' alt=''></img></div>
                             <div className="sugestao">
                                 <div className="sugestao_titulo">Receba vários orçamentos grátis</div>
                                 <p className="sugestao_descr">Converse com os/as profissionais para receber orçamentos dos nossos funcionarios dependendo do seu problema.</p>
                             </div>
                         </div>
                         <div className=" col-sm-4 caixa_sug " >
-                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/1698/1698478.png' className='sug_icon'></img></div>
+                            <div className='text-center'><img src='https://cdn-icons-png.flaticon.com/512/1698/1698478.png' className='sug_icon' alt=''></img></div>
                             <div className="sugestao">
                                 <div className="sugestao_titulo">Visualizar dispositivos/estado de reparação</div>
                                 <p className="sugestao_descr">Ao se registar é possivel acessar a sua área de cliente e verificar o seu histórico de dispositivos/reparações.</p>
@@ -58,7 +45,6 @@ class AreaEspecializacao extends Component {
                     </div>
                 </div>
                 <div className="areaEsp">
-                    
                     <h1>Reparamos:</h1>
                     <div id="demo" className="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div className="carousel-indicators">
@@ -89,7 +75,6 @@ class AreaEspecializacao extends Component {
                                 </div>
                             </div>
                         </div>
-                        
                         <button className="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                             <span className="carousel-control-prev-icon"></span>
                         </button>
@@ -106,7 +91,6 @@ class AreaEspecializacao extends Component {
                     </div>
                 </div>
                 <br></br>
-                
             </>
         );
     }

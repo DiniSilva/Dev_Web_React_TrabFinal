@@ -11,7 +11,7 @@ function App() {
       <header className="App-header layer">
         <Loja/>
       </header>
-      <footer className="bg-dark text-center text-white"> 
+      <footer id="foot" className="bg-dark text-center text-white"> 
         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom border-secondary">
           <div className="me-5 d-none d-lg-block">
             <span>Obrigado por visitar o nosso website</span>
@@ -19,11 +19,8 @@ function App() {
         </section>
         <section className="">
           <div className="container text-center text-md-start mt-5">
-            
             <div className="row mt-3">
-             
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                
                 <h6 className="text-uppercase fw-bold mb-4">
                   Trabalho Info
                 </h6>
