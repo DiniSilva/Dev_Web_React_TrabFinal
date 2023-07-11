@@ -43,16 +43,23 @@ class Loja extends Component {
         };
         
         fetch("https://localhost:7294/api/ClientesAPI", requestOptions)
+        // Converte a resposta para JSON
         .then(response => response.json())
+        // Atualiza o state com os dados da resposta 
         .then(result => this.setState({ listaClientes: result }))
+        // Trata erros caso estes ocorram 
         .catch(error => console.log("error", error));
     }
     
     // Buscar os dados de um Cliente á API 
     buscarCliente(id){
+        // Faz a requisição GET para a API com o ID específico
         fetch("https://localhost:7294/api/ClientesAPI/" + id)
+        // Converte a resposta para JSON
         .then(response => response.json())
-        .then(result => this.setState({ dadosCliente: result },() => {console.log(this.state.dadosCliente)}))
+        // Atualiza o state com os dados do cliente encontrado   
+        .then(result => this.setState({ dadosCliente: result })) //,() => {console.log(this.state.dadosCliente)}
+        // Trata erros caso estes ocorram 
         .catch(error => console.log("error", error));
     }
 
@@ -64,19 +71,26 @@ class Loja extends Component {
             method: "GET",
             redirect: "follow"
         };
-        
+        // Faz a requisição GET para a API
         fetch("https://localhost:7294/api/FuncionariosAPI", requestOptions)
-        .then(response => response.json())
-        .then(result => this.setState({ listaFuncionarios: result }))
-        .catch(error => console.log("error", error));
+        // Converte a resposta para JSON
+        .then(response => response.json()) 
+        // Atualiza o state com os dados da resposta                                    
+        .then(result => this.setState({ listaFuncionarios: result }))         
+        // Trata erros caso estes ocorram 
+        .catch(error => console.log("error", error));                          
     }
     
     // Buscar os dados de um Funcionário á API 
     buscarFuncionario(id){
+        // Faz a requisição GET para a API com o ID específico
         fetch("https://localhost:7294/api/FuncionariosAPI/" + id)
-        .then(response => response.json())
-        .then(result => this.setState({ dadosFuncionario: result }))
-        .catch(error => console.log("error", error));
+        // Converte a resposta para JSON
+        .then(response => response.json())                      
+        // Atualiza o state com os dados do funcionário encontrado                
+        .then(result => this.setState({ dadosFuncionario: result }))     
+        // Trata erros caso estes ocorram      
+        .catch(error => console.log("error", error));                           
     }
     
     /*---------------------------------- Dispositivo ----------------------------------*/
@@ -89,16 +103,23 @@ class Loja extends Component {
         };
         
         fetch("https://localhost:7294/api/DispositivosAPI", requestOptions)
+        // Converte a resposta para JSON
         .then(response => response.json())
+        // Atualiza o state com os dados da resposta  
         .then(result => this.setState({ listaDispositivos: result }))
+        // Trata erros caso estes ocorram   
         .catch(error => console.log("error", error));
     }
     
     // Buscar os dados de um Dispostitvo á API 
     buscarDispositivo(id){
+        // Faz a requisição GET para a API com o ID específico
         fetch("https://localhost:7294/api/DispositivosAPI/" + id)
+        // Converte a resposta para JSON
         .then(response => response.json())
+        // Atualiza o state com os dados do dispositivo encontrado   
         .then(result => this.setState({ dadosDispositivo: result }))
+        // Trata erros caso estes ocorram   
         .catch(error => console.log("error", error));
     }
 
@@ -112,16 +133,23 @@ class Loja extends Component {
         };
         
         fetch("https://localhost:7294/api/ReparacaosAPI", requestOptions)
+        // Converte a resposta para JSON
         .then(response => response.json())
+        // Atualiza o state com os dados da resposta  
         .then(result => this.setState({ listaReparacaos: result }))
+        // Trata erros caso estes ocorram   
         .catch(error => console.log("error", error));
     }
     
     // Buscar os dados de uma Reparação á API 
     buscarReparacao(id){
+        // Faz a requisição GET para a API com o ID específico
         fetch("https://localhost:7294/api/ReparacaosAPI/" + id)
+        // Converte a resposta para JSON
         .then(response => response.json())
+        // Atualiza o state com os dados da reparacao encontrado   
         .then(result => this.setState({ dadosReparacao: result }))
+        // Trata erros caso estes ocorram   
         .catch(error => console.log("error", error));
     }
 
@@ -142,14 +170,18 @@ class Loja extends Component {
         
         return (
             <>
+                {/*referência do componente Barra de Navegação*/}
                 <Navbar
+                    /*variavel de verificação do estado de login*/
                     logged={this.state.isLogged} 
                 />
-
+                {/*referência do componente Login*/}
                 <Login 
                     buscar={() => { this.buscarDadosClientes() }}
                     LoginStatus={(logged, id) => {this.handelLoginStatus(logged, id)}}
+                    /*dados do clinte que realizou login*/
                     dados={this.state.dadosCliente}
+                    /*obtem dados do cliente dependendo do id */
                     buscarCliente={(id) => {this.buscarCliente(id)}}
                 />
 
@@ -160,18 +192,22 @@ class Loja extends Component {
                 <br></br>
                 <br></br>
                 <section id="areaEspecializacao" className='areaEspecializacao'>
+                    {/*referência do componente área de especialiação*/}
                     <AreaEspecializacao 
+                        //lista de funcionários
                         listaFuncionarios={this.state.listaFuncionarios}
-                        buscarFuncionario={(id) => { this.buscarFuncionario(id) }}
                     />
                 </section>
                 <br></br>
                 <br></br>
                 <section id="areaCliente" className='areaCliente' >
+                      {/*referência do componente área de cliente*/}
                     <AreaCliente 
+                        //lista de dispositivos
                         listaDispositivos={this.state.listaDispositivos} 
+                        //lista de reparações
                         listaReparacaos={this.state.listaReparacaos}
-                        buscarDispositivo={(id) => { this.buscarDispositivo(id) }}
+                         /*variavel de verificação do estado de login e variavel que contêm o id do utilizador*/
                         logged={this.state.isLogged} logid={this.state.LogId}
                     />
                 </section>

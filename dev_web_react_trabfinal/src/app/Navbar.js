@@ -6,6 +6,7 @@ class Navbar extends Component {
         super(props);
     }
 
+    //função que faz scroll para o topo da loja
     scrollToLoja = () => {
         const lojaSection = document.getElementById('sec');
         if (lojaSection) {
@@ -13,13 +14,14 @@ class Navbar extends Component {
         }
     };
 
+    //função que faz scroll para a area de especialização
     scrollToAreaEspecializacao = () => {
         const areaEspecializacaoSection = document.getElementById('areaEspecializacao');
         if (areaEspecializacaoSection) {
             areaEspecializacaoSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
-
+    //função que faz scroll para a area de cliente
     scrollToAreaCliente  = () => {
         const areaClienteSection = document.getElementById('areaCliente');
         if (areaClienteSection) {
@@ -27,17 +29,11 @@ class Navbar extends Component {
         }
     };
 
-    scrollToDispositivo = () => {
-        const dispositivoSection = document.getElementById('dispositivo');
-        if (dispositivoSection) {
-            dispositivoSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-    scrollToReparacao = () => {
-        const reparacaoSection = document.getElementById('reparacao');
-        if (reparacaoSection) {
-            reparacaoSection.scrollIntoView({ behavior: 'smooth' });
+    //função que faz scroll para o fim da página/footer
+    scrollToFoot = () => {
+        const footer = document.getElementById('foot');
+        if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
@@ -49,6 +45,7 @@ class Navbar extends Component {
                     <div className='nav-links'>
                         <ul>
                             <li className="nav-item"><a className="nav-link" onClick={this.scrollToLoja}>Início</a></li>
+                            <li className="nav-item"><a className="nav-link" onClick={this.scrollToFoot}>Fim</a></li>
                             <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaEspecializacao}>Especializações</a></li>
                             {this.props.logged ? (
                                 <li className="nav-item"><a className="nav-link" onClick={this.scrollToAreaCliente}>Área do Cliente</a></li>

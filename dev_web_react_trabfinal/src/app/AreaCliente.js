@@ -7,9 +7,6 @@ class AreaCliente extends Component {
         super(props);
     }
 
-    teste(){
-        console.log(this.props.logged, this.props.logid);
-    }
 
     render() {
         // lista para guardar a ClieneFK dos dispostitovos
@@ -99,10 +96,12 @@ class AreaCliente extends Component {
                 )
             }
         })
-
+        
+        //condição verdadeira se o utilizador estiver logado
         if(this.props.logged) {
             return (
                 <> 
+                    {/*tabs da area de cliente*/}
                     <div className='fonte_area'><h1>Área Cliente</h1></div>
                     <div >
                         <ul className="nav nav-tabs " id="myTab" role="tablist">
@@ -118,11 +117,13 @@ class AreaCliente extends Component {
                         <div className="tab-content caixa" id="myTabContent">
                             <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
                                 <ul className="listaCliente">
+                                    {/*lista de dispositivos*/}
                                         {listaDis}
                                 </ul>
                             </div>
                             <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
                                 <ul className="listaCliente">
+                                    {/*lista de reparações*/}
                                         {listaRep}
                                 </ul>
                             </div>
